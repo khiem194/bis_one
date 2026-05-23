@@ -3,28 +3,24 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>BIS ONE 350SC — Tinh hoa bảo vệ mùa màng</title>
-<meta name="description" content="BIS ONE 350SC — Thuốc bảo vệ thực vật thế hệ mới. Diệt sạch sâu bệnh, an toàn cho cây trồng. 1 lít cho 1.5 hecta." />
+<title>BIS ONE — Diệt sạch sâu bệnh</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Manrope:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root {
     --moss: #1c2e25;
     --moss-deep: #0f1a14;
     --moss-soft: #2a3e33;
     --cream: #f3ecdc;
-    --cream-warm: #ebe2cc;
     --bone: #faf6ec;
     --gold: #c89545;
     --gold-bright: #e0b063;
-    --rust: #8a4a25;
     --ink: #15201a;
     --line: rgba(28, 46, 37, 0.18);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -32,41 +28,39 @@
     background: var(--bone);
     color: var(--ink);
     overflow-x: hidden;
-    font-weight: 400;
-    line-height: 1.5;
+    font-weight: 500;
+    line-height: 1.55;
+    font-size: 19px;
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Grain overlay */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-    opacity: 0.08;
+    opacity: 0.07;
     pointer-events: none;
     z-index: 1000;
     mix-blend-mode: multiply;
   }
 
   .container {
-    max-width: 1400px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 48px;
   }
 
-  /* ============ NAVIGATION ============ */
+  /* NAV */
   nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     z-index: 100;
-    padding: 24px 48px;
+    padding: 20px 48px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(250, 246, 236, 0.85);
+    background: rgba(250, 246, 236, 0.92);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
   }
@@ -74,20 +68,26 @@
   .logo {
     font-family: 'Fraunces', serif;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 26px;
     letter-spacing: -0.02em;
     color: var(--moss);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+  }
+
+  .logo em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 400;
   }
 
   .logo-mark {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     background: var(--moss);
     border-radius: 50%;
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -95,99 +95,70 @@
 
   .logo-mark::after {
     content: '';
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background: var(--gold-bright);
     border-radius: 50%;
   }
 
-  .nav-links {
-    display: flex;
-    gap: 36px;
-    list-style: none;
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-
-  .nav-links a {
-    color: var(--moss);
-    text-decoration: none;
-    transition: opacity 0.3s;
-    position: relative;
-  }
-
-  .nav-links a:hover { opacity: 0.6; }
-
   .nav-cta {
     background: var(--moss);
     color: var(--bone);
-    padding: 12px 24px;
+    padding: 16px 32px;
     border-radius: 100px;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     text-decoration: none;
-    transition: all 0.3s;
-    border: 1px solid var(--moss);
+    transition: background 0.3s;
   }
 
-  .nav-cta:hover {
-    background: var(--gold);
-    border-color: var(--gold);
-  }
+  .nav-cta:hover { background: var(--gold); }
 
-  /* ============ HERO ============ */
+  /* HERO */
   .hero {
     min-height: 100vh;
-    padding: 140px 0 80px;
-    position: relative;
-    overflow: hidden;
-    background: var(--bone);
+    padding: 140px 0 100px;
+    display: flex;
+    align-items: center;
   }
 
   .hero-grid {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
-    gap: 60px;
+    gap: 80px;
     align-items: center;
-    min-height: calc(100vh - 220px);
+    width: 100%;
   }
 
   .hero-eyebrow {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 16px;
-    font-size: 12px;
+    gap: 14px;
+    font-size: 15px;
     text-transform: uppercase;
     letter-spacing: 0.18em;
     color: var(--moss-soft);
-    font-weight: 500;
-    margin-bottom: 32px;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.2s forwards;
+    font-weight: 700;
+    margin-bottom: 36px;
   }
 
   .hero-eyebrow::before {
     content: '';
-    width: 60px;
-    height: 1px;
-    background: var(--moss);
+    width: 50px;
+    height: 2px;
+    background: var(--gold);
   }
 
   .hero-title {
     font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: clamp(56px, 8.5vw, 132px);
-    line-height: 0.92;
+    font-weight: 400;
+    font-size: clamp(56px, 8vw, 124px);
+    line-height: 0.95;
     letter-spacing: -0.035em;
     color: var(--moss-deep);
-    margin-bottom: 36px;
-    opacity: 0;
-    animation: fadeUp 0.9s 0.35s forwards;
-    font-variation-settings: 'opsz' 144, 'SOFT' 50;
+    margin-bottom: 40px;
   }
 
   .hero-title em {
@@ -195,76 +166,69 @@
     font-style: italic;
     font-weight: 400;
     color: var(--gold);
-    font-variation-settings: 'opsz' 144;
   }
 
   .hero-sub {
-    font-size: 18px;
-    line-height: 1.55;
+    font-size: 22px;
+    line-height: 1.5;
     color: var(--moss-soft);
-    max-width: 480px;
     margin-bottom: 48px;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.5s forwards;
+    font-weight: 500;
   }
 
   .hero-ctas {
     display: flex;
     gap: 16px;
     align-items: center;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.65s forwards;
+    flex-wrap: wrap;
   }
 
   .btn-primary {
-    background: var(--moss);
-    color: var(--bone);
-    padding: 18px 36px;
+    background: var(--gold);
+    color: var(--moss-deep);
+    padding: 22px 40px;
     border-radius: 100px;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-    border: 1px solid var(--moss);
+    gap: 14px;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
   }
 
   .btn-primary:hover {
-    background: var(--gold);
-    border-color: var(--gold);
+    background: var(--moss);
+    color: var(--bone);
     transform: translateY(-2px);
   }
 
-  .btn-primary svg {
-    transition: transform 0.4s;
-  }
-
-  .btn-primary:hover svg {
-    transform: translateX(4px);
-  }
-
-  .btn-ghost {
-    color: var(--moss);
+  .btn-secondary {
+    background: var(--moss);
+    color: var(--bone);
+    padding: 22px 40px;
+    border-radius: 100px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 18px 24px;
-    border-bottom: 1px solid var(--moss);
-    transition: opacity 0.3s;
+    display: inline-flex;
+    align-items: center;
+    transition: background 0.3s;
   }
 
-  .btn-ghost:hover { opacity: 0.6; }
+  .btn-secondary:hover { background: var(--gold); color: var(--moss-deep); }
 
-  /* Hero visual */
+  /* HERO VISUAL */
   .hero-visual {
     position: relative;
-    height: 600px;
-    opacity: 0;
-    animation: fadeIn 1.2s 0.4s forwards;
+    aspect-ratio: 3/4;
   }
 
   .product-stage {
@@ -283,7 +247,7 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse at 30% 30%, rgba(224, 176, 99, 0.15), transparent 60%),
+      radial-gradient(ellipse at 30% 30%, rgba(224, 176, 99, 0.2), transparent 60%),
       radial-gradient(ellipse at 70% 80%, rgba(200, 149, 69, 0.1), transparent 50%);
   }
 
@@ -292,13 +256,12 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.18;
+    opacity: 0.2;
   }
 
   .product-bottle {
-    position: relative;
-    width: 60%;
-    max-width: 280px;
+    width: 65%;
+    max-width: 320px;
     z-index: 2;
     filter: drop-shadow(0 30px 60px rgba(0,0,0,0.4));
     animation: float 6s ease-in-out infinite;
@@ -312,145 +275,89 @@
 
   @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+    50% { transform: translateY(-14px); }
   }
 
   .hero-badge {
     position: absolute;
+    top: 32px;
+    right: 32px;
     background: var(--gold);
     color: var(--moss-deep);
     border-radius: 50%;
+    width: 140px;
+    height: 140px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-family: 'Fraunces', serif;
     z-index: 3;
-  }
-
-  .badge-top {
-    top: 32px;
-    right: 32px;
-    width: 130px;
-    height: 130px;
-    flex-direction: column;
     animation: spin 24s linear infinite;
-  }
-
-  .badge-top span:first-child {
-    font-size: 32px;
-    font-weight: 600;
-    line-height: 1;
-  }
-
-  .badge-top span:last-child {
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-top: 4px;
-    font-family: 'Manrope', sans-serif;
-  }
-
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
-
-  .hero-stat {
-    position: absolute;
-    bottom: 24px;
-    left: 24px;
-    background: var(--cream);
-    padding: 20px 24px;
-    border-radius: 18px;
-    z-index: 3;
-    max-width: 220px;
-  }
-
-  .hero-stat-num {
     font-family: 'Fraunces', serif;
-    font-size: 44px;
-    font-weight: 500;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .hero-badge .num {
+    font-size: 42px;
+    font-weight: 600;
     line-height: 1;
-    color: var(--moss-deep);
-    letter-spacing: -0.02em;
   }
 
-  .hero-stat-label {
+  .hero-badge .lbl {
+    font-family: 'Manrope', sans-serif;
     font-size: 12px;
-    color: var(--moss-soft);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
     margin-top: 6px;
-    line-height: 1.4;
   }
 
-  /* ============ MARQUEE ============ */
-  .marquee {
+  /* PROMISE BANNER */
+  .promise {
     background: var(--moss-deep);
     color: var(--cream);
-    padding: 28px 0;
-    overflow: hidden;
+    padding: 80px 0;
+    text-align: center;
     border-top: 1px solid rgba(243, 236, 220, 0.1);
     border-bottom: 1px solid rgba(243, 236, 220, 0.1);
   }
 
-  .marquee-track {
-    display: flex;
-    gap: 80px;
-    white-space: nowrap;
-    animation: marquee 40s linear infinite;
+  .promise h2 {
     font-family: 'Fraunces', serif;
-    font-size: 24px;
-    font-weight: 300;
-    letter-spacing: -0.01em;
-    align-items: center;
+    font-weight: 400;
+    font-size: clamp(40px, 6vw, 88px);
+    line-height: 1;
+    letter-spacing: -0.03em;
   }
 
-  .marquee-track span {
-    display: flex;
-    align-items: center;
-    gap: 80px;
-  }
-
-  .marquee-track em {
+  .promise em {
+    font-family: 'Instrument Serif', serif;
     font-style: italic;
     color: var(--gold-bright);
   }
 
-  .marquee-dot {
-    width: 8px;
-    height: 8px;
-    background: var(--gold);
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  @keyframes marquee {
-    to { transform: translateX(-50%); }
-  }
-
-  /* ============ SECTION SHARED ============ */
-  section {
-    padding: 140px 0;
-    position: relative;
-  }
+  /* SECTIONS */
+  section { padding: 120px 0; }
 
   .section-tag {
     display: flex;
     align-items: center;
     gap: 14px;
-    font-size: 12px;
+    font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.2em;
     color: var(--moss-soft);
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 28px;
   }
 
-  .section-tag-num {
+  .section-tag .num {
     font-family: 'Fraunces', serif;
     font-style: italic;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 20px;
     color: var(--gold);
     text-transform: none;
     letter-spacing: 0;
@@ -458,12 +365,11 @@
 
   .section-title {
     font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: clamp(40px, 5.5vw, 84px);
-    line-height: 0.98;
+    font-weight: 400;
+    font-size: clamp(42px, 5.5vw, 80px);
+    line-height: 1;
     letter-spacing: -0.03em;
     color: var(--moss-deep);
-    max-width: 900px;
   }
 
   .section-title em {
@@ -472,222 +378,114 @@
     color: var(--gold);
   }
 
-  /* ============ PROBLEM SECTION ============ */
-  .problem {
-    background: var(--cream);
-    position: relative;
-  }
+  /* BENEFITS GRID */
+  .benefits { background: var(--cream); }
 
-  .problem-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 100px;
-    align-items: end;
-    margin-top: 80px;
-  }
-
-  .problem-pests {
+  .benefits-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2px;
     background: var(--line);
     border: 1px solid var(--line);
+    margin-top: 80px;
   }
 
-  .pest-card {
+  .benefit-card {
     background: var(--cream);
-    padding: 32px 24px;
+    padding: 56px 48px;
     transition: background 0.4s;
-    cursor: default;
   }
 
-  .pest-card:hover {
+  .benefit-card:hover {
     background: var(--moss);
     color: var(--cream);
   }
 
-  .pest-card:hover .pest-icon {
-    color: var(--gold-bright);
-  }
+  .benefit-card:hover .benefit-icon { color: var(--gold-bright); }
+  .benefit-card:hover .benefit-list { color: rgba(243, 236, 220, 0.85); }
 
-  .pest-icon {
-    width: 36px;
-    height: 36px;
+  .benefit-icon {
+    width: 56px;
+    height: 56px;
     color: var(--moss);
-    margin-bottom: 16px;
+    margin-bottom: 32px;
     transition: color 0.4s;
   }
 
-  .pest-name {
+  .benefit-title {
     font-family: 'Fraunces', serif;
-    font-size: 22px;
+    font-size: 38px;
     font-weight: 400;
-    letter-spacing: -0.01em;
-    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-bottom: 20px;
   }
 
-  .pest-desc {
-    font-size: 13px;
-    opacity: 0.7;
-    line-height: 1.5;
-  }
-
-  .problem-text p {
+  .benefit-list {
     font-size: 19px;
     line-height: 1.6;
     color: var(--moss-soft);
-    margin-bottom: 24px;
-    max-width: 480px;
+    transition: color 0.4s;
   }
 
-  .problem-text p:first-child {
+  /* COVERAGE STAT */
+  .coverage {
+    background: var(--bone);
+    text-align: center;
+    padding: 140px 0;
+  }
+
+  .coverage-num {
     font-family: 'Fraunces', serif;
-    font-size: 28px;
-    line-height: 1.3;
+    font-size: clamp(140px, 22vw, 320px);
     font-weight: 300;
+    line-height: 0.85;
+    letter-spacing: -0.05em;
     color: var(--moss-deep);
-    letter-spacing: -0.015em;
+    margin-bottom: 24px;
   }
 
-  /* ============ STATS RIBBON ============ */
-  .stats-ribbon {
-    background: var(--moss-deep);
-    color: var(--cream);
-    padding: 100px 0;
-  }
-
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 60px;
-  }
-
-  .stat-block {
-    border-left: 1px solid rgba(243, 236, 220, 0.18);
-    padding-left: 28px;
-  }
-
-  .stat-num {
-    font-family: 'Fraunces', serif;
-    font-size: 78px;
-    font-weight: 300;
-    line-height: 1;
-    color: var(--cream);
-    margin-bottom: 16px;
-    letter-spacing: -0.04em;
-  }
-
-  .stat-num em {
+  .coverage-num em {
     font-family: 'Instrument Serif', serif;
     font-style: italic;
-    color: var(--gold-bright);
-    font-size: 0.7em;
-  }
-
-  .stat-label {
-    font-size: 14px;
-    line-height: 1.5;
-    color: rgba(243, 236, 220, 0.7);
-    max-width: 200px;
-  }
-
-  /* ============ PRODUCT FEATURES ============ */
-  .features {
-    background: var(--bone);
-  }
-
-  .features-head {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: end;
-    margin-bottom: 100px;
-  }
-
-  .features-intro {
-    font-size: 17px;
-    line-height: 1.65;
-    color: var(--moss-soft);
-    max-width: 460px;
-  }
-
-  .feature-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    border-top: 1px solid var(--line);
-  }
-
-  .feature-row {
-    display: grid;
-    grid-template-columns: 60px 1fr;
-    gap: 32px;
-    padding: 48px 0;
-    border-bottom: 1px solid var(--line);
-    align-items: start;
-  }
-
-  .feature-row:nth-child(odd) {
-    padding-right: 48px;
-    border-right: 1px solid var(--line);
-  }
-
-  .feature-row:nth-child(even) {
-    padding-left: 48px;
-  }
-
-  .feature-num {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 28px;
-    font-weight: 400;
     color: var(--gold);
+    font-size: 0.5em;
   }
 
-  .feature-title {
+  .coverage-label {
     font-family: 'Fraunces', serif;
-    font-size: 26px;
+    font-size: clamp(24px, 3vw, 36px);
     font-weight: 400;
-    letter-spacing: -0.015em;
-    color: var(--moss-deep);
-    margin-bottom: 12px;
-    line-height: 1.2;
-  }
-
-  .feature-desc {
-    font-size: 15px;
-    line-height: 1.6;
     color: var(--moss-soft);
+    letter-spacing: -0.01em;
   }
 
-  /* ============ COMPARISON ============ */
+  .coverage-sub {
+    margin-top: 32px;
+    font-size: 20px;
+    color: var(--moss-soft);
+    font-weight: 500;
+  }
+
+  /* COMPARE */
   .compare {
     background: var(--moss);
     color: var(--cream);
-    overflow: hidden;
-    position: relative;
   }
 
-  .compare .section-title {
-    color: var(--cream);
-  }
-
-  .compare .section-tag {
-    color: rgba(243, 236, 220, 0.6);
-  }
+  .compare .section-title { color: var(--cream); }
+  .compare .section-tag { color: rgba(243, 236, 220, 0.6); }
 
   .compare-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 40px;
     margin-top: 80px;
   }
 
   .compare-card {
     padding: 56px 48px;
     border-radius: 24px;
-    position: relative;
-    overflow: hidden;
   }
 
   .compare-card.others {
@@ -703,12 +501,12 @@
   }
 
   .compare-label {
-    font-size: 12px;
+    font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.18em;
-    font-weight: 600;
-    margin-bottom: 24px;
-    opacity: 0.6;
+    font-weight: 700;
+    margin-bottom: 28px;
+    opacity: 0.7;
   }
 
   .compare-card.us .compare-label {
@@ -718,11 +516,11 @@
 
   .compare-price {
     font-family: 'Fraunces', serif;
-    font-size: 88px;
-    font-weight: 300;
+    font-size: clamp(72px, 9vw, 112px);
+    font-weight: 400;
     line-height: 1;
     letter-spacing: -0.04em;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
 
   .compare-price em {
@@ -732,214 +530,117 @@
     color: var(--gold-bright);
   }
 
-  .compare-card.us .compare-price em {
-    color: var(--gold);
-  }
+  .compare-card.us .compare-price em { color: var(--gold); }
 
   .compare-unit {
-    font-size: 15px;
-    opacity: 0.7;
+    font-size: 18px;
+    opacity: 0.75;
     margin-bottom: 40px;
+    font-weight: 500;
   }
 
   .compare-list {
     list-style: none;
-    border-top: 1px solid rgba(243, 236, 220, 0.15);
+    border-top: 1px solid rgba(243, 236, 220, 0.18);
     padding-top: 28px;
   }
 
   .compare-card.us .compare-list {
-    border-top-color: rgba(28, 46, 37, 0.15);
+    border-top-color: rgba(28, 46, 37, 0.18);
   }
 
   .compare-list li {
     padding: 14px 0;
-    font-size: 15px;
+    font-size: 19px;
+    font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
   }
 
   .compare-list .ic {
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
     flex-shrink: 0;
   }
 
-  /* ============ SPECS ============ */
-  .specs {
-    background: var(--cream);
-    padding: 140px 0;
-  }
+  /* USAGE */
+  .usage { background: var(--cream); }
 
-  .specs-layout {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 120px;
-    align-items: center;
-    margin-top: 80px;
-  }
-
-  .specs-visual {
-    position: relative;
-    aspect-ratio: 4/5;
-    background: var(--moss-deep);
-    border-radius: 20px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .specs-visual::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(circle at 30% 20%, rgba(200, 149, 69, 0.25), transparent 50%),
-      radial-gradient(circle at 70% 80%, rgba(224, 176, 99, 0.15), transparent 50%);
-  }
-
-  .specs-visual img {
-    width: 60%;
-    max-width: 280px;
-    filter: drop-shadow(0 40px 80px rgba(0,0,0,0.5));
-    position: relative;
-    z-index: 2;
-  }
-
-  .specs-table {
+  .usage-list {
     list-style: none;
-  }
-
-  .specs-row {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    padding: 28px 0;
-    border-bottom: 1px solid var(--line);
-    align-items: baseline;
-    gap: 24px;
-  }
-
-  .specs-row:first-child {
+    margin-top: 80px;
     border-top: 1px solid var(--line);
   }
 
-  .specs-key {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--moss-soft);
-    font-weight: 600;
-  }
-
-  .specs-val {
-    font-family: 'Fraunces', serif;
-    font-size: 22px;
-    font-weight: 400;
-    color: var(--moss-deep);
-    letter-spacing: -0.015em;
-    line-height: 1.3;
-  }
-
-  .specs-val em {
-    font-family: 'Instrument Serif', serif;
-    font-style: italic;
-    color: var(--gold);
-  }
-
-  /* ============ APPLICATION ============ */
-  .application {
-    background: var(--bone);
-  }
-
-  .steps-grid {
+  .usage-row {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 280px 1fr;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
     gap: 32px;
-    margin-top: 80px;
   }
 
-  .step-card {
-    border-top: 2px solid var(--moss-deep);
-    padding-top: 32px;
-    position: relative;
+  .usage-key {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--moss-soft);
+    font-weight: 700;
   }
 
-  .step-num {
+  .usage-val {
     font-family: 'Fraunces', serif;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--gold);
-    letter-spacing: 0.04em;
-    margin-bottom: 24px;
-    display: inline-block;
+    font-size: clamp(28px, 3vw, 38px);
+    font-weight: 400;
+    color: var(--moss-deep);
+    letter-spacing: -0.015em;
+    line-height: 1.15;
   }
 
-  .step-num em {
+  .usage-val em {
     font-family: 'Instrument Serif', serif;
     font-style: italic;
-    font-size: 60px;
-    color: var(--moss-deep);
-    display: block;
-    line-height: 1;
-    margin-top: -8px;
-    margin-bottom: 16px;
+    color: var(--gold);
   }
 
-  .step-title {
-    font-family: 'Fraunces', serif;
-    font-size: 26px;
-    font-weight: 400;
-    letter-spacing: -0.015em;
-    color: var(--moss-deep);
-    margin-bottom: 16px;
-    line-height: 1.2;
-  }
-
-  .step-desc {
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--moss-soft);
-  }
-
-  /* ============ TESTIMONIALS ============ */
+  /* TESTIMONIALS */
   .testimonials {
     background: var(--moss-deep);
     color: var(--cream);
   }
 
-  .testimonials .section-title {
-    color: var(--cream);
-  }
+  .testimonials .section-title { color: var(--cream); }
 
   .test-meta {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 24px;
     margin-top: 40px;
-    color: rgba(243, 236, 220, 0.7);
-    font-size: 14px;
+    color: rgba(243, 236, 220, 0.75);
+    font-size: 18px;
+    font-weight: 500;
   }
 
   .stars {
     color: var(--gold-bright);
-    letter-spacing: 0.15em;
-    font-size: 18px;
+    letter-spacing: 0.18em;
+    font-size: 22px;
   }
 
   .test-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
     margin-top: 80px;
   }
 
   .test-card {
-    background: rgba(243, 236, 220, 0.04);
+    background: rgba(243, 236, 220, 0.05);
     border: 1px solid rgba(243, 236, 220, 0.12);
-    padding: 40px 32px;
-    border-radius: 18px;
+    padding: 48px 40px;
+    border-radius: 20px;
     transition: all 0.4s;
   }
 
@@ -948,19 +649,11 @@
     transform: translateY(-4px);
   }
 
-  .test-card:nth-child(2) {
-    transform: translateY(40px);
-  }
-
-  .test-card:nth-child(2):hover {
-    transform: translateY(36px);
-  }
-
   .test-quote {
     font-family: 'Fraunces', serif;
-    font-size: 22px;
-    font-weight: 300;
-    line-height: 1.4;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.3;
     letter-spacing: -0.015em;
     color: var(--cream);
     margin-bottom: 32px;
@@ -970,100 +663,28 @@
     content: '"';
     font-family: 'Instrument Serif', serif;
     font-style: italic;
-    font-size: 60px;
+    font-size: 80px;
     color: var(--gold);
-    line-height: 0.5;
+    line-height: 0.4;
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
 
-  .test-author {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    border-top: 1px solid rgba(243, 236, 220, 0.12);
-    padding-top: 20px;
-  }
-
-  .test-avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--moss);
+  .test-stars {
     color: var(--gold-bright);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Fraunces', serif;
     font-size: 18px;
-    font-weight: 500;
+    letter-spacing: 0.15em;
+    border-top: 1px solid rgba(243, 236, 220, 0.12);
+    padding-top: 24px;
   }
 
-  .test-name {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--cream);
-  }
-
-  .test-role {
-    font-size: 12px;
-    color: rgba(243, 236, 220, 0.5);
-    margin-top: 2px;
-  }
-
-  /* ============ FAQ / TRUST ============ */
-  .trust {
-    background: var(--bone);
-  }
-
-  .trust-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    margin-top: 80px;
-  }
-
-  .trust-card {
-    border: 1px solid var(--line);
-    padding: 36px 28px;
-    border-radius: 16px;
-    background: var(--cream);
-    transition: all 0.3s;
-  }
-
-  .trust-card:hover {
-    border-color: var(--moss);
-    transform: translateY(-3px);
-  }
-
-  .trust-icon {
-    width: 40px;
-    height: 40px;
-    color: var(--gold);
-    margin-bottom: 24px;
-  }
-
-  .trust-title {
-    font-family: 'Fraunces', serif;
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--moss-deep);
-    margin-bottom: 10px;
-    letter-spacing: -0.01em;
-  }
-
-  .trust-desc {
-    font-size: 14px;
-    line-height: 1.55;
-    color: var(--moss-soft);
-  }
-
-  /* ============ CTA SECTION ============ */
+  /* CTA */
   .cta-final {
     background: var(--cream);
     padding: 160px 0;
     position: relative;
     overflow: hidden;
+    text-align: center;
   }
 
   .cta-decoration {
@@ -1082,43 +703,34 @@
   .cta-decoration::before {
     content: '';
     position: absolute;
-    inset: 80px;
-    border: 1px solid var(--moss);
-    border-radius: 50%;
-  }
-
-  .cta-decoration::after {
-    content: '';
-    position: absolute;
-    inset: 200px;
+    inset: 100px;
     border: 1px solid var(--moss);
     border-radius: 50%;
   }
 
   .cta-content {
-    text-align: center;
     position: relative;
     z-index: 2;
-    max-width: 900px;
+    max-width: 880px;
     margin: 0 auto;
   }
 
   .cta-eyebrow {
-    font-family: 'Fraunces', serif;
+    font-family: 'Instrument Serif', serif;
     font-style: italic;
-    font-size: 20px;
+    font-size: 24px;
     color: var(--gold);
     margin-bottom: 24px;
   }
 
   .cta-title {
     font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: clamp(48px, 7vw, 110px);
+    font-weight: 400;
+    font-size: clamp(48px, 7vw, 104px);
     line-height: 0.95;
     letter-spacing: -0.035em;
     color: var(--moss-deep);
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
 
   .cta-title em {
@@ -1128,35 +740,34 @@
   }
 
   .cta-sub {
-    font-size: 19px;
-    line-height: 1.55;
+    font-size: 22px;
+    line-height: 1.5;
     color: var(--moss-soft);
     margin-bottom: 56px;
-    max-width: 560px;
-    margin-left: auto;
-    margin-right: auto;
+    font-weight: 600;
   }
 
   .cta-form {
     display: flex;
     gap: 12px;
-    max-width: 580px;
+    max-width: 620px;
     margin: 0 auto;
     background: var(--bone);
-    padding: 8px;
+    padding: 10px;
     border-radius: 100px;
-    border: 1px solid var(--line);
+    border: 2px solid var(--moss);
   }
 
   .cta-form input {
     flex: 1;
     border: none;
     background: transparent;
-    padding: 18px 24px;
-    font-size: 15px;
+    padding: 20px 28px;
+    font-size: 18px;
     font-family: inherit;
     color: var(--moss-deep);
     outline: none;
+    font-weight: 500;
   }
 
   .cta-form input::placeholder {
@@ -1168,43 +779,47 @@
     background: var(--moss);
     color: var(--bone);
     border: none;
-    padding: 18px 36px;
+    padding: 20px 40px;
     border-radius: 100px;
     font-family: inherit;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     cursor: pointer;
     transition: background 0.3s;
   }
 
-  .cta-form button:hover {
-    background: var(--gold);
+  .cta-form button:hover { background: var(--gold); color: var(--moss-deep); }
+
+  .cta-extra {
+    margin-top: 32px;
+    font-size: 17px;
+    color: var(--moss-soft);
+    font-weight: 500;
   }
 
-  /* ============ FOOTER ============ */
+  /* FOOTER */
   footer {
     background: var(--moss-deep);
     color: rgba(243, 236, 220, 0.7);
-    padding: 80px 0 40px;
+    padding: 60px 0 40px;
   }
 
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 60px;
-    margin-bottom: 60px;
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
   }
 
   .footer-brand {
     font-family: 'Fraunces', serif;
-    font-size: 48px;
+    font-size: 40px;
     font-weight: 400;
     color: var(--cream);
-    letter-spacing: -0.03em;
-    margin-bottom: 20px;
-    line-height: 1;
+    letter-spacing: -0.02em;
   }
 
   .footer-brand em {
@@ -1213,133 +828,53 @@
     color: var(--gold-bright);
   }
 
-  .footer-tagline {
-    font-size: 14px;
-    line-height: 1.6;
-    max-width: 320px;
-    margin-bottom: 28px;
-  }
-
-  .footer-col h4 {
-    color: var(--cream);
-    font-family: 'Manrope', sans-serif;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
-
-  .footer-col ul {
-    list-style: none;
-  }
-
-  .footer-col li {
-    padding: 6px 0;
-    font-size: 14px;
-  }
-
-  .footer-col a {
-    color: rgba(243, 236, 220, 0.7);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .footer-col a:hover {
-    color: var(--gold-bright);
-  }
-
-  .footer-bottom {
-    border-top: 1px solid rgba(243, 236, 220, 0.1);
-    padding-top: 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
+  .footer-meta {
+    font-size: 15px;
     color: rgba(243, 236, 220, 0.5);
   }
 
-  /* ============ ANIMATIONS ============ */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1s ease, transform 1s ease;
-  }
-
-  .reveal.in {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ============ RESPONSIVE ============ */
+  /* RESPONSIVE */
   @media (max-width: 1024px) {
     .container { padding: 0 32px; }
-    nav { padding: 20px 32px; }
-    .nav-links { display: none; }
-    .hero-grid, .problem-grid, .features-head, .specs-layout, .compare-grid, .footer-grid {
+    nav { padding: 16px 32px; }
+    .hero-grid, .compare-grid, .test-grid, .benefits-grid {
       grid-template-columns: 1fr;
-      gap: 60px;
+      gap: 40px;
     }
-    .hero-visual { height: 500px; }
-    .stats-grid, .test-grid, .trust-grid, .steps-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .feature-list { grid-template-columns: 1fr; }
-    .feature-row:nth-child(odd) {
-      padding-right: 0;
-      border-right: none;
-    }
-    .feature-row:nth-child(even) {
-      padding-left: 0;
-    }
+    .hero-visual { aspect-ratio: 4/5; max-width: 500px; margin: 0 auto; }
+    .usage-row { grid-template-columns: 1fr; gap: 12px; padding: 28px 0; }
   }
 
   @media (max-width: 640px) {
+    body { font-size: 17px; }
     .container { padding: 0 20px; }
-    nav { padding: 16px 20px; }
+    nav { padding: 14px 20px; }
+    .logo { font-size: 22px; }
+    .nav-cta { padding: 12px 20px; font-size: 13px; }
     section { padding: 80px 0; }
-    .hero { padding: 100px 0 60px; }
-    .stats-grid, .test-grid, .trust-grid, .steps-grid {
-      grid-template-columns: 1fr;
-    }
-    .test-card:nth-child(2) { transform: translateY(0); }
-    .test-card:nth-child(2):hover { transform: translateY(-4px); }
+    .hero { padding: 110px 0 60px; }
+    .hero-sub { font-size: 19px; }
     .hero-ctas { flex-direction: column; align-items: stretch; }
-    .btn-primary, .btn-ghost { justify-content: center; text-align: center; }
-    .cta-form { flex-direction: column; border-radius: 24px; padding: 12px; }
+    .btn-primary, .btn-secondary { justify-content: center; padding: 20px 28px; font-size: 16px; }
+    .benefit-card { padding: 40px 28px; }
+    .compare-card { padding: 40px 28px; }
+    .test-card { padding: 36px 28px; }
+    .test-quote { font-size: 24px; }
+    .cta-form { flex-direction: column; border-radius: 24px; padding: 14px; }
     .cta-form button { width: 100%; }
-    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-    .specs-row { grid-template-columns: 1fr; gap: 8px; }
-    .badge-top { width: 90px; height: 90px; }
-    .badge-top span:first-child { font-size: 22px; }
-    .badge-top span:last-child { font-size: 8px; }
+    .hero-badge { width: 100px; height: 100px; top: 20px; right: 20px; }
+    .hero-badge .num { font-size: 28px; }
+    .hero-badge .lbl { font-size: 9px; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="logo">
     <div class="logo-mark"></div>
-    <span>Bis<em style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--gold);">One</em></span>
+    <span>Bis<em>One</em></span>
   </div>
-  <ul class="nav-links">
-    <li><a href="#product">Sản phẩm</a></li>
-    <li><a href="#features">Ưu điểm</a></li>
-    <li><a href="#specs">Thông số</a></li>
-    <li><a href="#reviews">Đánh giá</a></li>
-  </ul>
   <a href="#cta" class="nav-cta">Tư vấn ngay</a>
 </nav>
 
@@ -1347,27 +882,17 @@
 <header class="hero">
   <div class="container">
     <div class="hero-grid">
-      <div class="hero-text">
-        <div class="hero-eyebrow">
-          <span>Bioseed · 350SC · Thế hệ mới</span>
-        </div>
+      <div>
+        <div class="hero-eyebrow">Công nghệ 350SC</div>
         <h1 class="hero-title">
-          Diệt sạch<br>
-          sâu bệnh,<br>
-          <em>nâng niu</em> mùa màng.
+          Bis One<br>
+          <em>diệt sạch</em><br>
+          sâu bệnh.
         </h1>
-        <p class="hero-sub">
-          BIS ONE 350SC — Thuốc bảo vệ thực vật công nghệ huyền phù đậm đặc.
-          Hiệu quả tức thì trong 30 phút, an toàn cho cây trồng và môi trường.
-        </p>
+        <p class="hero-sub">Diệt trừ sâu công nghệ dạng mát 350SC.</p>
         <div class="hero-ctas">
-          <a href="#cta" class="btn-primary">
-            Nhận tư vấn miễn phí
-            <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
-              <path d="M1 7H17M17 7L11 1M17 7L11 13" stroke="currentColor" stroke-width="1.5"/>
-            </svg>
-          </a>
-          <a href="#product" class="btn-ghost">Khám phá sản phẩm</a>
+          <a href="#cta" class="btn-primary">Nhận ưu đãi 40%</a>
+          <a href="#cta" class="btn-secondary">Tư vấn ngay</a>
         </div>
       </div>
 
@@ -1391,13 +916,9 @@
           <div class="product-bottle">
             <img src="images/img.png" alt="BIS ONE 350SC" />
           </div>
-          <div class="hero-badge badge-top">
-            <span>30'</span>
-            <span>Hiệu quả</span>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-num">1.5<span style="font-size: 24px; color: var(--gold);">ha</span></div>
-            <div class="hero-stat-label">trên mỗi 1 lít — phủ rộng, tiết kiệm</div>
+          <div class="hero-badge">
+            <div class="num">40%</div>
+            <div class="lbl">Ưu đãi</div>
           </div>
         </div>
       </div>
@@ -1405,397 +926,159 @@
   </div>
 </header>
 
-<!-- MARQUEE -->
-<div class="marquee">
-  <div class="marquee-track">
-    <span>Sâu vẽ bùa <span class="marquee-dot"></span> Rầy <em>nâu</em> <span class="marquee-dot"></span> Bọ trĩ <span class="marquee-dot"></span> Nhện đỏ <span class="marquee-dot"></span> Rệp sáp <span class="marquee-dot"></span> Ruồi <em>vàng</em> <span class="marquee-dot"></span> Sâu cuốn lá <span class="marquee-dot"></span> Bọ phấn <span class="marquee-dot"></span></span>
-    <span>Sâu vẽ bùa <span class="marquee-dot"></span> Rầy <em>nâu</em> <span class="marquee-dot"></span> Bọ trĩ <span class="marquee-dot"></span> Nhện đỏ <span class="marquee-dot"></span> Rệp sáp <span class="marquee-dot"></span> Ruồi <em>vàng</em> <span class="marquee-dot"></span> Sâu cuốn lá <span class="marquee-dot"></span> Bọ phấn <span class="marquee-dot"></span></span>
+<!-- PROMISE -->
+<section class="promise">
+  <div class="container">
+    <h2>Diệt sạch sâu bệnh<br><em>sau 1 lần phun</em>.</h2>
   </div>
-</div>
+</section>
 
-<!-- PROBLEM -->
-<section class="problem" id="product">
+<!-- BENEFITS -->
+<section class="benefits">
   <div class="container">
     <div class="section-tag">
-      <span class="section-tag-num">01</span>
-      <span>—  Đối tượng phòng trừ</span>
+      <span class="num">01</span>
+      <span>—  Công dụng</span>
     </div>
-    <h2 class="section-title reveal">Mỗi vụ mùa, một <em>cuộc chiến</em><br>thầm lặng dưới tán lá.</h2>
+    <h2 class="section-title">Bốn lý do<br>bà con <em>tin dùng</em>.</h2>
 
-    <div class="problem-grid reveal">
-      <div class="problem-text">
-        <p>Hơn 40% năng suất nông sản Việt mất đi vì sâu bệnh. Mỗi loài có cách tấn công riêng — và BIS ONE được thiết kế cho từng kẻ thù.</p>
-        <p>Công thức 350SC thâm nhập kép: vừa tiếp xúc, vừa nội hấp. Tác động lên hệ thần kinh côn trùng, gây tê liệt ngay từ liều thấp.</p>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <svg class="benefit-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M24 6C16 14 16 22 24 30C32 22 32 14 24 6Z"/>
+          <circle cx="24" cy="36" r="6"/>
+          <line x1="24" y1="30" x2="24" y2="30"/>
+        </svg>
+        <h3 class="benefit-title">Mát bông —<br>mát trái</h3>
+        <p class="benefit-list">Sâu các loại · Ruồi vàng · Rầy rệp</p>
       </div>
-      <div class="problem-pests">
-        <div class="pest-card">
-          <svg class="pest-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M16 4C12 8 12 12 16 16C20 12 20 8 16 4Z"/>
-            <path d="M16 16C12 20 12 24 16 28C20 24 20 20 16 16Z"/>
-            <line x1="8" y1="16" x2="24" y2="16"/>
-          </svg>
-          <div class="pest-name">Sâu vẽ bùa</div>
-          <div class="pest-desc">Tấn công lá non, lá bánh tẻ</div>
-        </div>
-        <div class="pest-card">
-          <svg class="pest-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="16" cy="16" r="6"/>
-            <path d="M16 10V4M16 22V28M22 16H28M4 16H10"/>
-            <circle cx="16" cy="16" r="2" fill="currentColor"/>
-          </svg>
-          <div class="pest-name">Nhện đỏ</div>
-          <div class="pest-desc">Hút nhựa cây, lá vàng úa</div>
-        </div>
-        <div class="pest-card">
-          <svg class="pest-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
-            <ellipse cx="16" cy="16" rx="10" ry="5"/>
-            <line x1="6" y1="16" x2="2" y2="14"/>
-            <line x1="6" y1="16" x2="2" y2="18"/>
-            <line x1="26" y1="16" x2="30" y2="14"/>
-            <line x1="26" y1="16" x2="30" y2="18"/>
-          </svg>
-          <div class="pest-name">Bọ trĩ</div>
-          <div class="pest-desc">Chích hút, lan virus</div>
-        </div>
-        <div class="pest-card">
-          <svg class="pest-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="16" cy="20" r="6"/>
-            <circle cx="12" cy="12" r="2"/>
-            <circle cx="20" cy="12" r="2"/>
-            <path d="M16 14V18"/>
-          </svg>
-          <div class="pest-name">Rầy &amp; Rệp</div>
-          <div class="pest-desc">Sinh sản nhanh, kháng thuốc</div>
-        </div>
+
+      <div class="benefit-card">
+        <svg class="benefit-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="24" cy="24" r="10"/>
+          <path d="M24 14V6M24 42V34M14 24H6M42 24H34M16 16L10 10M38 38L32 32M16 32L10 38M38 10L32 16"/>
+        </svg>
+        <h3 class="benefit-title">Diệt sạch</h3>
+        <p class="benefit-list">Bọ xít muỗi · Nhện đỏ · Bọ xít · Bọ cánh cứng</p>
+      </div>
+
+      <div class="benefit-card">
+        <svg class="benefit-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M26 6L12 26H22L18 42L36 20H26L30 6H26Z"/>
+        </svg>
+        <h3 class="benefit-title">Đánh nhanh —<br>diệt gọn</h3>
+        <p class="benefit-list">Chuyên trị côn trùng chích hút.</p>
+      </div>
+
+      <div class="benefit-card">
+        <svg class="benefit-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M24 6V42M16 14H29C32 14 34 16 34 19C34 22 32 24 29 24H19C16 24 14 26 14 29C14 32 16 34 19 34H32"/>
+        </svg>
+        <h3 class="benefit-title">Siêu<br>tiết kiệm</h3>
+        <p class="benefit-list">Rẻ bằng 1/3 sản phẩm cùng loại.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- STATS -->
-<section class="stats-ribbon">
+<!-- COVERAGE -->
+<section class="coverage">
   <div class="container">
-    <div class="stats-grid">
-      <div class="stat-block reveal">
-        <div class="stat-num">30<em>'</em></div>
-        <div class="stat-label">Thấy hiệu quả ngay sau phun, sâu giảm hoạt động.</div>
-      </div>
-      <div class="stat-block reveal">
-        <div class="stat-num">5-7</div>
-        <div class="stat-label">Ngày cây hồi phục, ra lá non xanh khỏe.</div>
-      </div>
-      <div class="stat-block reveal">
-        <div class="stat-num">1<em>/3</em></div>
-        <div class="stat-label">Chi phí so với sản phẩm cùng phân khúc.</div>
-      </div>
-      <div class="stat-block reveal">
-        <div class="stat-num">12k<em>+</em></div>
-        <div class="stat-label">Nông dân Việt đã tin dùng và đánh giá 5 sao.</div>
-      </div>
-    </div>
+    <div class="coverage-num">1.5<em>ha</em></div>
+    <div class="coverage-label">1 lít phun 1,5 héc ta (15.000m²)</div>
+    <div class="coverage-sub">Được hàng triệu bà con tin tưởng sử dụng.</div>
   </div>
 </section>
 
-<!-- FEATURES -->
-<section class="features" id="features">
-  <div class="container">
-    <div class="features-head">
-      <div>
-        <div class="section-tag">
-          <span class="section-tag-num">02</span>
-          <span>—  Vì sao chọn Bis One</span>
-        </div>
-        <h2 class="section-title reveal">Sáu lý do để <em>tin tưởng</em><br>mỗi giọt chúng tôi pha chế.</h2>
-      </div>
-      <p class="features-intro reveal">
-        Không chỉ là một loại thuốc bảo vệ thực vật.
-        BIS ONE là kết quả của hơn một thập kỷ nghiên cứu cùng các chuyên gia
-        nông học, kết hợp công nghệ huyền phù 350SC hiện đại nhất hiện nay.
-      </p>
-    </div>
-
-    <div class="feature-list">
-      <div class="feature-row reveal">
-        <span class="feature-num">i.</span>
-        <div>
-          <h3 class="feature-title">Công nghệ huyền phù 350SC</h3>
-          <p class="feature-desc">Hoạt chất phân tán siêu mịn, bám đều bề mặt lá. Tan 100% trong nước, không tắc bình phun.</p>
-        </div>
-      </div>
-      <div class="feature-row reveal">
-        <span class="feature-num">ii.</span>
-        <div>
-          <h3 class="feature-title">Tác động kép thần kinh</h3>
-          <p class="feature-desc">Vừa tiếp xúc vừa nội hấp. Đánh trúng cả sâu trưởng thành lẫn ấu trùng ẩn nấp.</p>
-        </div>
-      </div>
-      <div class="feature-row reveal">
-        <span class="feature-num">iii.</span>
-        <div>
-          <h3 class="feature-title">An toàn cho cây trồng</h3>
-          <p class="feature-desc">Không gây cháy lá non, không ảnh hưởng quá trình ra hoa, đậu quả của cây.</p>
-        </div>
-      </div>
-      <div class="feature-row reveal">
-        <span class="feature-num">iv.</span>
-        <div>
-          <h3 class="feature-title">Phổ tác dụng rộng</h3>
-          <p class="feature-desc">Diệt được nhiều loại sâu chích hút, miệng nhai. Phù hợp đa dạng cây trồng từ rau màu tới cây ăn quả.</p>
-        </div>
-      </div>
-      <div class="feature-row reveal">
-        <span class="feature-num">v.</span>
-        <div>
-          <h3 class="feature-title">Tiết kiệm chi phí</h3>
-          <p class="feature-desc">Chỉ 5-7 nghìn đồng cho 20 lít nước phun. Một lít BIS ONE đủ cho 1.5 hecta canh tác.</p>
-        </div>
-      </div>
-      <div class="feature-row reveal">
-        <span class="feature-num">vi.</span>
-        <div>
-          <h3 class="feature-title">Đạt chứng nhận Bộ NN-PTNT</h3>
-          <p class="feature-desc">Được cấp phép lưu hành chính thức. Thời gian cách ly chỉ 14 ngày, an toàn cho người tiêu dùng.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMPARISON -->
+<!-- COMPARE -->
 <section class="compare">
   <div class="container">
     <div class="section-tag">
-      <span class="section-tag-num">03</span>
-      <span style="color: rgba(243, 236, 220, 0.6);">—  So sánh giá trị</span>
+      <span class="num">02</span>
+      <span style="color: rgba(243, 236, 220, 0.6);">—  So sánh giá</span>
     </div>
-    <h2 class="section-title reveal">Cùng diệt sâu, nhưng<br><em>khác biệt</em> ở giá thành.</h2>
+    <h2 class="section-title">Rẻ bằng <em>1/3</em>.</h2>
 
     <div class="compare-grid">
-      <div class="compare-card others reveal">
-        <div class="compare-label">Sản phẩm khác trên thị trường</div>
+      <div class="compare-card others">
+        <div class="compare-label">Sản phẩm khác</div>
         <div class="compare-price">15-20<em>k</em></div>
-        <div class="compare-unit">/ bình phun 20 lít</div>
+        <div class="compare-unit">/ bình 20 lít</div>
         <ul class="compare-list">
-          <li>
-            <svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M7 7L13 13M13 7L7 13"/></svg>
-            Liều cao mới hiệu quả, dễ cháy lá
-          </li>
-          <li>
-            <svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M7 7L13 13M13 7L7 13"/></svg>
-            Hoạt chất lắng cặn, tắc vòi phun
-          </li>
-          <li>
-            <svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M7 7L13 13M13 7L7 13"/></svg>
-            Sâu kháng thuốc sau vài vụ
-          </li>
-          <li>
-            <svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M7 7L13 13M13 7L7 13"/></svg>
-            Chi phí cao, lợi nhuận thấp
-          </li>
+          <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M7 7L13 13M13 7L7 13"/></svg> Đắt</li>
+          <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M7 7L13 13M13 7L7 13"/></svg> Độc hại</li>
+          <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M7 7L13 13M13 7L7 13"/></svg> Nhờn thuốc</li>
+          <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M7 7L13 13M13 7L7 13"/></svg> Mùi</li>
         </ul>
       </div>
 
-      <div class="compare-card us reveal">
-        <div class="compare-label">★  Bis One 350SC</div>
+      <div class="compare-card us">
+        <div class="compare-label">★  Bis One</div>
         <div class="compare-price">5-7<em>k</em></div>
-        <div class="compare-unit">/ bình phun 20 lít · Tiết kiệm 60%</div>
+        <div class="compare-unit">/ bình 20 lít</div>
         <ul class="compare-list">
-          <li>
-            <svg class="ic" viewBox="0 0 20 20" fill="none" stroke="var(--moss)" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M6 10L9 13L14 7"/></svg>
-            Liều thấp 0.1-0.3L/ha vẫn hiệu quả
-          </li>
-          <li>
-            <svg class="ic" viewBox="0 0 20 20" fill="none" stroke="var(--moss)" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M6 10L9 13L14 7"/></svg>
-            Tan hoàn toàn, không tắc bình
-          </li>
-          <li>
-            <svg class="ic" viewBox="0 0 20 20" fill="none" stroke="var(--moss)" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M6 10L9 13L14 7"/></svg>
-            Tác động kép, sâu khó kháng
-          </li>
-          <li>
-            <svg class="ic" viewBox="0 0 20 20" fill="none" stroke="var(--moss)" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M6 10L9 13L14 7"/></svg>
-            Lợi nhuận tăng, mùa màng bội thu
-          </li>
+          <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="var(--moss)" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M6 10L9 13L14 7"/></svg> Rẻ bằng 1/3</li>
+          <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="var(--moss)" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M6 10L9 13L14 7"/></svg> Diệt sạch sâu bệnh</li>
+          <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="var(--moss)" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M6 10L9 13L14 7"/></svg> Đánh nhanh — diệt gọn</li>
+          <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="var(--moss)" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M6 10L9 13L14 7"/></svg> Siêu tiết kiệm</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SPECS -->
-<section class="specs" id="specs">
+<!-- USAGE -->
+<section class="usage">
   <div class="container">
     <div class="section-tag">
-      <span class="section-tag-num">04</span>
-      <span>—  Thông số kỹ thuật</span>
-    </div>
-    <h2 class="section-title reveal">Khoa học đứng sau<br>mỗi <em>giọt nhỏ</em>.</h2>
-
-    <div class="specs-layout">
-      <div class="specs-visual reveal">
-        <img src="images/img.png" alt="BIS ONE bottle" />
-      </div>
-
-      <ul class="specs-table reveal">
-        <li class="specs-row">
-          <span class="specs-key">Hoạt chất</span>
-          <span class="specs-val">Imidacloprid <em>350 g/L</em></span>
-        </li>
-        <li class="specs-row">
-          <span class="specs-key">Dạng bào chế</span>
-          <span class="specs-val">Huyền phù đậm đặc <em>(SC)</em></span>
-        </li>
-        <li class="specs-row">
-          <span class="specs-key">Liều dùng</span>
-          <span class="specs-val">0.1 – 0.3 L / hecta</span>
-        </li>
-        <li class="specs-row">
-          <span class="specs-key">Lượng nước</span>
-          <span class="specs-val">400 L / hecta</span>
-        </li>
-        <li class="specs-row">
-          <span class="specs-key">Phổ phủ</span>
-          <span class="specs-val">1 lít trải đều <em>1.5 ha</em></span>
-        </li>
-        <li class="specs-row">
-          <span class="specs-key">Thời gian cách ly</span>
-          <span class="specs-val">14 ngày sau phun</span>
-        </li>
-        <li class="specs-row">
-          <span class="specs-key">Quy cách</span>
-          <span class="specs-val">Chai 100ml · 500ml · 1L · Can 5L</span>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- APPLICATION -->
-<section class="application">
-  <div class="container">
-    <div class="section-tag">
-      <span class="section-tag-num">05</span>
+      <span class="num">03</span>
       <span>—  Hướng dẫn sử dụng</span>
     </div>
-    <h2 class="section-title reveal">Bốn bước đơn giản<br>để <em>bảo vệ</em> mùa màng.</h2>
+    <h2 class="section-title">Cách dùng <em>đơn giản</em>.</h2>
 
-    <div class="steps-grid">
-      <div class="step-card reveal">
-        <span class="step-num"><em>I</em>Bước một</span>
-        <h3 class="step-title">Pha đúng liều</h3>
-        <p class="step-desc">Hòa 20-30ml BIS ONE với 20 lít nước sạch. Khuấy đều cho tan hoàn toàn trước khi đổ vào bình phun.</p>
-      </div>
-      <div class="step-card reveal">
-        <span class="step-num"><em>II</em>Bước hai</span>
-        <h3 class="step-title">Chọn thời điểm</h3>
-        <p class="step-desc">Phun vào sáng sớm hoặc chiều mát. Tránh phun lúc nắng gắt hoặc trước cơn mưa lớn.</p>
-      </div>
-      <div class="step-card reveal">
-        <span class="step-num"><em>III</em>Bước ba</span>
-        <h3 class="step-title">Phun đều hai mặt</h3>
-        <p class="step-desc">Phun ướt cả mặt trên và mặt dưới của lá. Đặc biệt chú ý vào các tán lá có dấu hiệu sâu bệnh.</p>
-      </div>
-      <div class="step-card reveal">
-        <span class="step-num"><em>IV</em>Bước bốn</span>
-        <h3 class="step-title">Theo dõi &amp; nhắc lại</h3>
-        <p class="step-desc">Quan sát hiệu quả sau 30 phút. Phun nhắc lại sau 7-10 ngày nếu áp lực sâu bệnh cao.</p>
-      </div>
-    </div>
+    <ul class="usage-list">
+      <li class="usage-row">
+        <span class="usage-key">Liều lượng</span>
+        <span class="usage-val"><em>0,1 – 0,3</em> lít / ha</span>
+      </li>
+      <li class="usage-row">
+        <span class="usage-key">Lượng nước phun</span>
+        <span class="usage-val"><em>400</em> lít / ha</span>
+      </li>
+      <li class="usage-row">
+        <span class="usage-key">Cách pha</span>
+        <span class="usage-val">Pha <em>10ml</em> cho bình phun 20 lít nước</span>
+      </li>
+      <li class="usage-row">
+        <span class="usage-key">Thời gian cách ly</span>
+        <span class="usage-val"><em>14</em> ngày sau khi phun</span>
+      </li>
+    </ul>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="testimonials" id="reviews">
+<section class="testimonials">
   <div class="container">
     <div class="section-tag">
-      <span class="section-tag-num" style="color: var(--gold-bright);">06</span>
-      <span style="color: rgba(243, 236, 220, 0.6);">—  Lời nông dân nói</span>
+      <span class="num" style="color: var(--gold-bright);">04</span>
+      <span style="color: rgba(243, 236, 220, 0.6);">—  Bà con nói gì</span>
     </div>
-    <h2 class="section-title reveal">Niềm tin được vun<br>từ <em>hàng ngàn</em> mùa vụ.</h2>
+    <h2 class="section-title">Hàng triệu bà con<br><em>tin dùng</em>.</h2>
 
     <div class="test-meta">
       <div class="stars">★ ★ ★ ★ ★</div>
-      <div>12,545 đánh giá · 100% năm sao · cập nhật mỗi ngày</div>
+      <div>Đánh giá thực từ nhà vườn</div>
     </div>
 
     <div class="test-grid">
-      <div class="test-card reveal">
-        <p class="test-quote">Vườn cam nhà tôi bị nhện đỏ rất nặng, phun BIS ONE 2 hôm là sạch hẳn. Lá xanh trở lại, năm nay được mùa lớn nhất từ trước tới giờ.</p>
-        <div class="test-author">
-          <div class="test-avatar">T</div>
-          <div>
-            <div class="test-name">Anh Tâm</div>
-            <div class="test-role">Trồng cam · Hàm Yên, Tuyên Quang</div>
-          </div>
-        </div>
+      <div class="test-card">
+        <p class="test-quote">Dùng rất tuyệt vời. Chất lượng đúng mô tả.</p>
+        <div class="test-stars">★ ★ ★ ★ ★</div>
       </div>
-
-      <div class="test-card reveal">
-        <p class="test-quote">Giá rẻ hơn loại tôi hay dùng tới một nửa mà hiệu quả thì hơn hẳn. Đại lý giao hàng tận ruộng, đóng gói cẩn thận. Lần sau chắc chắn mua tiếp.</p>
-        <div class="test-author">
-          <div class="test-avatar">H</div>
-          <div>
-            <div class="test-name">Chị Hương</div>
-            <div class="test-role">HTX rau sạch · Đà Lạt, Lâm Đồng</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="test-card reveal">
-        <p class="test-quote">Bọ trĩ trên ruộng dưa hấu của tôi gây thiệt hại nặng nhiều năm. Từ ngày dùng BIS ONE, hai vụ rồi không còn lo nữa. Đáng tiền lắm.</p>
-        <div class="test-author">
-          <div class="test-avatar">N</div>
-          <div>
-            <div class="test-name">Anh Nghĩa</div>
-            <div class="test-role">Trồng dưa · Long An</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TRUST -->
-<section class="trust">
-  <div class="container">
-    <div class="section-tag">
-      <span class="section-tag-num">07</span>
-      <span>—  Cam kết Bioseed</span>
-    </div>
-    <h2 class="section-title reveal">Đứng cùng nông dân,<br>từ <em>luống đầu</em> tới vụ cuối.</h2>
-
-    <div class="trust-grid">
-      <div class="trust-card reveal">
-        <svg class="trust-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
-          <circle cx="16" cy="16" r="13"/>
-          <path d="M16 8V16L21 19"/>
-        </svg>
-        <h4 class="trust-title">Tư vấn 5-10 phút</h4>
-        <p class="trust-desc">Kỹ sư nông học gọi lại miễn phí, hướng dẫn chi tiết cho từng loại cây trồng.</p>
-      </div>
-      <div class="trust-card reveal">
-        <svg class="trust-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="4" y="10" width="24" height="16" rx="2"/>
-          <path d="M4 14H28M8 22H12"/>
-        </svg>
-        <h4 class="trust-title">Freeship từ 2 sản phẩm</h4>
-        <p class="trust-desc">Đặt từ 2 chai trở lên — chúng tôi giao tận tay, không phí vận chuyển.</p>
-      </div>
-      <div class="trust-card reveal">
-        <svg class="trust-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M16 4L20 12L28 13L22 19L24 27L16 23L8 27L10 19L4 13L12 12Z"/>
-        </svg>
-        <h4 class="trust-title">Bộ NN-PTNT cấp phép</h4>
-        <p class="trust-desc">Đầy đủ giấy phép lưu hành, kiểm định an toàn theo quy chuẩn quốc gia.</p>
-      </div>
-      <div class="trust-card reveal">
-        <svg class="trust-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M6 16C6 10 10 6 16 6C22 6 26 10 26 16C26 22 22 26 16 26"/>
-          <path d="M6 16L2 12M6 16L2 20"/>
-          <path d="M16 11V16L20 18"/>
-        </svg>
-        <h4 class="trust-title">Đổi trả 7 ngày</h4>
-        <p class="trust-desc">Lỗi sản xuất từ nhà máy — đổi trả miễn phí trong vòng 7 ngày kể từ ngày nhận.</p>
+      <div class="test-card">
+        <p class="test-quote">Được 3 ngày không thấy côn trùng gây hại.</p>
+        <div class="test-stars">★ ★ ★ ★ ★</div>
       </div>
     </div>
   </div>
@@ -1806,16 +1089,15 @@
   <div class="cta-decoration"></div>
   <div class="container">
     <div class="cta-content">
-      <div class="cta-eyebrow">— Ưu đãi hôm nay —</div>
-      <h2 class="cta-title">Giảm <em>40%</em><br>cho 20 nhà vườn<br>đăng ký đầu tiên.</h2>
-      <p class="cta-sub">
-        Để lại số điện thoại — kỹ sư của chúng tôi sẽ gọi lại trong 5-10 phút,
-        tư vấn miễn phí và áp dụng ưu đãi ngay cho đơn hàng đầu tiên.
-      </p>
+      <div class="cta-eyebrow">Ưu đãi đến 40%</div>
+      <h2 class="cta-title">Duy nhất<br><em>20 nhà vườn</em><br>hôm nay.</h2>
+      <p class="cta-sub">Để lại số điện thoại — chúng tôi gọi lại tư vấn ngay.</p>
       <form class="cta-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Đã gửi ✓'; setTimeout(()=>this.reset(),2000);">
-        <input type="tel" placeholder="Số điện thoại của bạn" required />
-        <button type="submit">Nhận tư vấn</button>
+        <label for="phone-input" class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Số điện thoại</label>
+        <input id="phone-input" type="tel" placeholder="Số điện thoại của bạn" required />
+        <button type="submit">Tư vấn ngay</button>
       </form>
+      <p class="cta-extra">Miễn phí giao hàng khi mua 2 sản phẩm trở lên.</p>
     </div>
   </div>
 </section>
@@ -1823,60 +1105,12 @@
 <!-- FOOTER -->
 <footer>
   <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">Bis<em>One</em></div>
-        <p class="footer-tagline">Một sản phẩm của Bioseed Vietnam. Đồng hành cùng nông dân Việt từ luống đất đầu tiên đến mùa thu hoạch sau cùng.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Sản phẩm</h4>
-        <ul>
-          <li><a href="#">BIS ONE 350SC</a></li>
-          <li><a href="#">Thông số</a></li>
-          <li><a href="#">Hướng dẫn</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Liên hệ</h4>
-        <ul>
-          <li><a href="tel:18001234">1800 1234</a></li>
-          <li><a href="mailto:hello@bioseed.vn">hello@bioseed.vn</a></li>
-          <li><a href="#">bioseed.vn</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Theo dõi</h4>
-        <ul>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">YouTube</a></li>
-          <li><a href="#">Zalo OA</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div>© 2026 Bioseed Vietnam. Tất cả quyền được bảo lưu.</div>
-      <div>Thiết kế cho mùa màng Việt.</div>
+    <div class="footer-inner">
+      <div class="footer-brand">Bis<em>One</em></div>
+      <div class="footer-meta">© 2026 Bioseed Vietnam.</div>
     </div>
   </div>
 </footer>
-
-<script>
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in');
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // Stagger reveals within sections
-  document.querySelectorAll('.test-card, .step-card, .feature-row, .pest-card, .trust-card, .stat-block').forEach((el, i) => {
-    el.style.transitionDelay = `${(i % 4) * 80}ms`;
-  });
-</script>
 
 </body>
 </html>
