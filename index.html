@@ -3,14 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BIS ONE 350SC — Diệt Sạch Sâu Bệnh Sau 1 Lần Phun</title>
+<title>BIS ONE 350SC — Diệt Sạch Sâu Bệnh Sau 1 Lần Phun · Bioseed</title>
+<meta name="description" content="BIS ONE 350SC — thuốc trừ sâu công nghệ dạng mát chuẩn Nhật Bản. Đánh nhanh, diệt gọn rầy nâu, bọ trĩ, rệp sáp, ruồi vàng, nhện đỏ. 1 lít phun 1,5 ha.">
+<meta property="og:title" content="BIS ONE 350SC — Diệt Sạch Sâu Bệnh Sau 1 Lần Phun">
+<meta property="og:description" content="Công nghệ Nano + Loang trải. Hiệu quả 30 phút. Phục hồi cây 5–7 ngày.">
+<meta property="og:image" content="images/img.png">
+<link rel="icon" href="images/img.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #0A0A08;
-    --ink-2: #1A1A18;
+    --ink-2: #15140F;
     --ink-soft: #4A4A45;
     --paper: #FDFAF2;
     --paper-2: #F4EFE0;
@@ -18,16 +23,19 @@
     --lime: #C5F94A;
     --lime-deep: #9FD32A;
     --lime-dark: #2E3A0A;
+    --leaf: #3F6B1F;
+    --leaf-deep: #234012;
     --fire: #FF3D14;
     --fire-deep: #D62E0A;
-    --olive: #4A5D23;
+    --gold: #F4B83E;
+    --clay: #B85C2A;
+    --sky: #5A8FB6;
     --line: rgba(10, 10, 8, 0.12);
+    --line-strong: rgba(10, 10, 8, 0.22);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   body {
     font-family: 'Be Vietnam Pro', sans-serif;
     background: var(--paper);
@@ -35,9 +43,14 @@
     line-height: 1.55;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+  img { max-width: 100%; height: auto; display: block; }
+  button { font: inherit; cursor: pointer; border: 0; background: transparent; color: inherit; }
+  a { color: inherit; text-decoration: none; }
 
   .display { font-family: 'Bricolage Grotesque', sans-serif; }
+  .serif { font-family: 'Instrument Serif', serif; }
   .mono { font-family: 'JetBrains Mono', monospace; }
 
   .container {
@@ -45,15 +58,10 @@
     margin: 0 auto;
     padding: 0 28px;
   }
-  @media (max-width: 640px) {
-    .container { padding: 0 18px; }
-  }
-  @media (max-width: 380px) {
-    .container { padding: 0 14px; }
-  }
-  img { max-width: 100%; height: auto; display: block; }
+  @media (max-width: 640px) { .container { padding: 0 18px; } }
+  @media (max-width: 380px) { .container { padding: 0 14px; } }
 
-  /* Lab-style label */
+  /* LAB LABEL */
   .lab-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
@@ -66,8 +74,7 @@
   }
   .lab-label::before {
     content: "";
-    width: 6px;
-    height: 6px;
+    width: 6px; height: 6px;
     background: currentColor;
     border-radius: 50%;
   }
@@ -81,10 +88,7 @@
     font-weight: 600;
     overflow: hidden;
     position: relative;
-  }
-  @media (max-width: 500px) {
-    .topbar { font-size: 11px; padding: 8px 0; }
-    .ticker { gap: 24px; }
+    border-bottom: 1px solid var(--ink);
   }
   .ticker {
     display: flex;
@@ -94,14 +98,16 @@
   }
   .ticker span { display: inline-flex; align-items: center; gap: 8px; }
   @keyframes ticker { to { transform: translateX(-50%); } }
+  @media (max-width: 500px) { .topbar { font-size: 11px; padding: 8px 0; } .ticker { gap: 24px; } }
 
   /* NAV */
-  nav {
+  nav.topnav {
     position: sticky;
     top: 0;
     z-index: 100;
     background: rgba(253, 250, 242, 0.92);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--line);
   }
   .nav-inner {
@@ -109,23 +115,16 @@
     align-items: center;
     justify-content: space-between;
     padding: 18px 0;
+    gap: 16px;
   }
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    color: var(--ink);
-  }
+  .logo { display: flex; align-items: center; gap: 12px; }
   .logo-mark {
-    width: 40px;
-    height: 40px;
+    width: 40px; height: 40px;
     background: var(--ink);
     color: var(--lime);
     border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
     font-family: 'Bricolage Grotesque', sans-serif;
     font-weight: 800;
     font-size: 22px;
@@ -136,6 +135,7 @@
     font-weight: 800;
     font-size: 22px;
     letter-spacing: -0.02em;
+    line-height: 1;
   }
   .logo-sub {
     font-family: 'JetBrains Mono', monospace;
@@ -143,14 +143,10 @@
     color: var(--ink-soft);
     text-transform: uppercase;
     letter-spacing: 0.15em;
+    margin-top: 3px;
   }
-  .nav-links {
-    display: flex;
-    gap: 36px;
-  }
+  .nav-links { display: flex; gap: 36px; }
   .nav-links a {
-    color: var(--ink);
-    text-decoration: none;
     font-size: 14px;
     font-weight: 500;
     position: relative;
@@ -158,9 +154,7 @@
   .nav-links a::after {
     content: "";
     position: absolute;
-    bottom: -6px;
-    left: 0;
-    right: 0;
+    bottom: -6px; left: 0; right: 0;
     height: 2px;
     background: var(--lime-deep);
     transform: scaleX(0);
@@ -175,14 +169,12 @@
     border-radius: 100px;
     font-size: 14px;
     font-weight: 700;
-    text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 8px;
     transition: all 0.2s;
   }
   .nav-cta:hover { background: var(--fire); color: white; transform: translateY(-1px); }
-
   @media (max-width: 900px) {
     .nav-links { display: none; }
     .nav-inner { padding: 14px 0; }
@@ -198,7 +190,7 @@
     .nav-cta { padding: 10px 12px; }
   }
 
-  /* HERO */
+  /* ========= HERO ========= */
   .hero {
     background: var(--ink);
     color: var(--paper);
@@ -206,16 +198,13 @@
     position: relative;
     overflow: hidden;
   }
-  @media (max-width: 640px) {
-    .hero { padding: 40px 0 0; }
-  }
   .hero::before {
     content: "";
     position: absolute;
     inset: 0;
     background-image:
-      radial-gradient(ellipse 60% 40% at 80% 30%, rgba(197, 249, 74, 0.12), transparent),
-      radial-gradient(ellipse 40% 60% at 0% 80%, rgba(255, 61, 20, 0.08), transparent);
+      radial-gradient(ellipse 70% 50% at 80% 20%, rgba(197, 249, 74, 0.14), transparent 60%),
+      radial-gradient(ellipse 45% 60% at 0% 90%, rgba(255, 61, 20, 0.10), transparent);
     pointer-events: none;
   }
   .hero::after {
@@ -223,78 +212,61 @@
     position: absolute;
     inset: 0;
     background-image:
-      repeating-linear-gradient(90deg, transparent 0, transparent 80px, rgba(197, 249, 74, 0.04) 80px, rgba(197, 249, 74, 0.04) 81px);
+      repeating-linear-gradient(90deg, transparent 0, transparent 80px, rgba(197, 249, 74, 0.045) 80px, rgba(197, 249, 74, 0.045) 81px);
     pointer-events: none;
   }
-
   .hero-tag {
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-bottom: 40px;
+    margin-bottom: 28px;
     color: var(--lime);
     position: relative;
     z-index: 1;
+    flex-wrap: wrap;
   }
   .hero-tag .lab-label { color: var(--lime); }
   .hero-tag .divider { width: 60px; height: 1px; background: var(--lime); opacity: 0.4; }
-  .hero-tag .meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(253, 250, 242, 0.5); letter-spacing: 0.1em; }
+  .hero-tag .meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(253, 250, 242, 0.55); letter-spacing: 0.1em; }
 
   .hero-grid {
     display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 40px;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 48px;
     align-items: end;
     position: relative;
     z-index: 1;
-    padding-bottom: 80px;
+    padding-bottom: 70px;
   }
-
   .hero h1 {
     font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: clamp(42px, 8.5vw, 140px);
+    font-size: clamp(48px, 8.5vw, 132px);
     font-weight: 800;
-    line-height: 0.9;
+    line-height: 0.86;
     letter-spacing: -0.045em;
     margin-bottom: 24px;
-    color: var(--paper);
-    word-break: break-word;
-    hyphens: auto;
   }
-  .hero h1 .accent {
-    color: var(--lime);
-    font-style: italic;
-    font-weight: 500;
-    font-family: 'Bricolage Grotesque', sans-serif;
-  }
-  .hero h1 .outline {
-    -webkit-text-stroke: 2px var(--paper);
-    color: transparent;
-  }
+  .hero h1 .accent { color: var(--lime); font-style: italic; font-weight: 500; font-family: 'Instrument Serif', serif; letter-spacing: 0; }
+  .hero h1 .outline { -webkit-text-stroke: 2px var(--paper); color: transparent; }
   .hero h1 .small {
-    font-size: 0.55em;
+    font-size: 0.42em;
     display: block;
     font-weight: 500;
     color: rgba(253, 250, 242, 0.7);
-    margin-top: 12px;
+    margin-top: 18px;
     letter-spacing: -0.02em;
+    line-height: 1.15;
+    font-family: 'Be Vietnam Pro', sans-serif;
   }
-
   .hero-sub {
     font-size: 18px;
-    color: rgba(253, 250, 242, 0.75);
-    margin-bottom: 36px;
+    color: rgba(253, 250, 242, 0.78);
+    margin-bottom: 32px;
     max-width: 540px;
-    line-height: 1.55;
   }
   .hero-sub strong { color: var(--lime); font-weight: 600; }
 
-  .hero-cta-group {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-bottom: 48px;
-  }
+  .hero-cta-group { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 44px; }
   .btn-primary {
     background: var(--lime);
     color: var(--ink);
@@ -302,19 +274,13 @@
     border-radius: 100px;
     font-weight: 700;
     font-size: 16px;
-    text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 10px;
     transition: all 0.3s;
     border: 2px solid var(--lime);
   }
-  .btn-primary:hover {
-    background: var(--fire);
-    border-color: var(--fire);
-    color: white;
-    transform: translateY(-2px);
-  }
+  .btn-primary:hover { background: var(--fire); border-color: var(--fire); color: white; transform: translateY(-2px); }
   .btn-ghost {
     background: transparent;
     color: var(--paper);
@@ -323,7 +289,6 @@
     border-radius: 100px;
     font-weight: 600;
     font-size: 16px;
-    text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -334,7 +299,6 @@
   .hero-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0;
     border-top: 1px solid rgba(253, 250, 242, 0.15);
     padding-top: 32px;
   }
@@ -356,7 +320,7 @@
   .stat-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
-    color: rgba(253, 250, 242, 0.5);
+    color: rgba(253, 250, 242, 0.55);
     text-transform: uppercase;
     letter-spacing: 0.12em;
   }
@@ -365,67 +329,57 @@
   .hero-visual {
     position: relative;
     aspect-ratio: 4/5;
-    max-width: 460px;
+    max-width: 480px;
     margin-left: auto;
   }
   .scope-circle {
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0;
     border: 1.5px dashed rgba(197, 249, 74, 0.4);
     border-radius: 50%;
     animation: rotate 60s linear infinite;
   }
   .scope-circle-2 {
-    position: absolute;
-    inset: 15%;
+    position: absolute; inset: 15%;
     border: 1px solid rgba(197, 249, 74, 0.2);
     border-radius: 50%;
   }
-  .crosshair {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
+  .crosshair { position: absolute; inset: 0; pointer-events: none; }
   .crosshair::before, .crosshair::after {
-    content: "";
-    position: absolute;
+    content: ""; position: absolute;
     background: rgba(197, 249, 74, 0.25);
   }
-  .crosshair::before {
-    left: 50%; top: 0; bottom: 0; width: 1px;
-  }
-  .crosshair::after {
-    top: 50%; left: 0; right: 0; height: 1px;
-  }
+  .crosshair::before { left: 50%; top: 0; bottom: 0; width: 1px; }
+  .crosshair::after { top: 50%; left: 0; right: 0; height: 1px; }
   @keyframes rotate { to { transform: rotate(360deg); } }
 
   .product-bottle-wrap {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     width: 72%;
     aspect-ratio: 1 / 1;
     z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
   }
   .product-bottle-wrap::before {
     content: "";
-    position: absolute;
-    inset: 8%;
-    background: radial-gradient(circle at 50% 45%, rgba(253, 250, 242, 0.18) 0%, rgba(197, 249, 74, 0.08) 40%, transparent 70%);
+    position: absolute; inset: 6%;
+    background: radial-gradient(circle at 50% 45%, rgba(253, 250, 242, 0.22) 0%, rgba(197, 249, 74, 0.10) 40%, transparent 72%);
     border-radius: 50%;
-    filter: blur(20px);
+    filter: blur(24px);
   }
   .product-bottle {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 25px 50px rgba(197, 249, 74, 0.25)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 25px 50px rgba(197, 249, 74, 0.25)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.55));
     z-index: 1;
+    animation: bottle-float 6s ease-in-out infinite;
+  }
+  @keyframes bottle-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
   }
 
   .data-tag {
@@ -439,10 +393,11 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    z-index: 2;
+    z-index: 3;
     display: flex;
     align-items: center;
     gap: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
   }
   .data-tag .num {
     font-size: 18px;
@@ -456,27 +411,25 @@
   .data-tag::before {
     content: "";
     position: absolute;
-    width: 8px;
-    height: 8px;
+    width: 8px; height: 8px;
     background: var(--lime);
     border-radius: 50%;
     box-shadow: 0 0 0 4px rgba(197, 249, 74, 0.3);
   }
-  .data-tag.tag-1 { top: 10%; left: -10%; }
+  .data-tag.tag-1 { top: 8%; left: -10%; }
   .data-tag.tag-1::before { right: -16px; top: 50%; transform: translateY(-50%); }
-  .data-tag.tag-2 { top: 45%; right: -12%; }
+  .data-tag.tag-2 { top: 44%; right: -12%; }
   .data-tag.tag-2::before { left: -16px; top: 50%; transform: translateY(-50%); }
-  .data-tag.tag-3 { bottom: 12%; left: -8%; }
+  .data-tag.tag-3 { bottom: 10%; left: -8%; }
   .data-tag.tag-3::before { right: -16px; top: 50%; transform: translateY(-50%); }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1024px) {
     .hero-grid { grid-template-columns: 1fr; gap: 48px; padding-bottom: 60px; }
-    .hero-visual { max-width: 360px; margin: 0 auto; }
-    .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .stat-num { font-size: 32px; }
+    .hero-visual { max-width: 380px; margin: 0 auto; }
   }
   @media (max-width: 640px) {
-    .hero-tag { gap: 10px; margin-bottom: 28px; flex-wrap: wrap; }
+    .hero { padding: 36px 0 0; }
+    .hero-tag { gap: 10px; margin-bottom: 24px; }
     .hero-tag .divider { display: none; }
     .hero-tag .meta { font-size: 10px; }
     .hero-sub { font-size: 16px; margin-bottom: 28px; }
@@ -487,23 +440,18 @@
     .stat-cell:last-child { border-bottom: none; padding-bottom: 0; }
     .stat-num { font-size: 36px; }
     .hero-visual { max-width: 280px; }
-    .data-tag { padding: 8px 10px; font-size: 9px; }
-    .data-tag .num { font-size: 14px; }
-    .data-tag.tag-1 { left: -5%; }
-    .data-tag.tag-2 { right: -5%; }
-    .data-tag.tag-3 { left: -5%; }
-  }
-  @media (max-width: 380px) {
-    .hero-visual { max-width: 230px; }
-    .data-tag { font-size: 8px; padding: 6px 8px; }
-    .data-tag .num { font-size: 12px; }
+    .data-tag { padding: 7px 9px; font-size: 9px; }
+    .data-tag .num { font-size: 13px; }
+    .data-tag.tag-1 { left: -4%; }
+    .data-tag.tag-2 { right: -4%; }
+    .data-tag.tag-3 { left: -4%; }
   }
 
-  /* HERO MARQUEE */
-  .hero-marquee {
+  /* MARQUEE */
+  .marquee {
     background: var(--lime);
     color: var(--ink);
-    padding: 18px 0;
+    padding: 16px 0;
     overflow: hidden;
     border-top: 2px solid var(--ink);
     border-bottom: 2px solid var(--ink);
@@ -522,39 +470,29 @@
   .marquee-track .star { color: var(--fire); font-size: 16px; }
 
   /* SECTION BASE */
-  section { padding: 120px 0; position: relative; }
-  @media (max-width: 900px) {
-    section { padding: 80px 0; }
-  }
-  @media (max-width: 640px) {
-    section { padding: 60px 0; }
-  }
+  section { padding: 110px 0; position: relative; }
+  @media (max-width: 900px) { section { padding: 72px 0; } }
+  @media (max-width: 640px) { section { padding: 56px 0; } }
+
   .section-head {
-    margin-bottom: 80px;
+    margin-bottom: 70px;
     max-width: 920px;
-  }
-  @media (max-width: 900px) {
-    .section-head { margin-bottom: 48px; }
-  }
-  @media (max-width: 640px) {
-    .section-head { margin-bottom: 36px; }
-    .section-head .lab-label { margin-bottom: 16px; }
-    .section-lead { font-size: 15px; }
   }
   .section-head .lab-label { margin-bottom: 24px; color: var(--fire); }
   .section-title {
     font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: clamp(32px, 6vw, 84px);
+    font-size: clamp(34px, 6vw, 80px);
     font-weight: 700;
-    line-height: 0.98;
+    line-height: 0.96;
     letter-spacing: -0.035em;
-    color: var(--ink);
     margin-bottom: 20px;
   }
   .section-title em {
     font-style: italic;
-    font-weight: 500;
-    color: var(--olive);
+    font-weight: 400;
+    color: var(--leaf);
+    font-family: 'Instrument Serif', serif;
+    letter-spacing: 0;
   }
   .section-title .strike {
     text-decoration: line-through;
@@ -563,14 +501,130 @@
     font-weight: 400;
   }
   .section-lead {
-    font-size: 19px;
+    font-size: 18px;
     color: var(--ink-soft);
-    max-width: 600px;
-    line-height: 1.55;
+    max-width: 640px;
+    line-height: 1.6;
+  }
+  @media (max-width: 640px) {
+    .section-head { margin-bottom: 40px; }
+    .section-head .lab-label { margin-bottom: 16px; }
+    .section-lead { font-size: 15px; }
   }
 
-  /* PROBLEMS */
-  .problems { background: var(--paper-2); }
+  /* ========= HOOK BANNER ========= */
+  .hookbanner {
+    background: var(--fire);
+    color: var(--paper);
+    padding: 72px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hookbanner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(135deg, transparent 0 40px, rgba(0,0,0,0.07) 40px 41px);
+    pointer-events: none;
+  }
+  .hookbanner-inner {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hookbanner h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(40px, 7vw, 100px);
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+  }
+  .hookbanner h2 .yellow { color: var(--gold); }
+  .hookbanner h2 .stroke { -webkit-text-stroke: 2.5px var(--paper); color: transparent; }
+  .hookbanner-sub {
+    font-family: 'JetBrains Mono', monospace;
+    margin-top: 22px;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  /* ========= ECONOMY ========= */
+  .economy {
+    background: var(--paper-2);
+    overflow: hidden;
+  }
+  .economy-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .economy-num {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(120px, 22vw, 320px);
+    font-weight: 800;
+    line-height: 0.85;
+    letter-spacing: -0.06em;
+    color: var(--ink);
+    position: relative;
+    display: inline-block;
+  }
+  .economy-num sup {
+    font-size: 0.3em;
+    color: var(--fire);
+    vertical-align: super;
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    margin-left: 8px;
+  }
+  .economy-unit {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(28px, 4vw, 52px);
+    color: var(--leaf);
+    font-style: italic;
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    display: block;
+    margin-top: -10px;
+  }
+  .economy-text h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  .economy-text p {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+  .economy-area {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1.5px dashed var(--ink);
+    border-radius: 100px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .economy-area strong { font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
+  @media (max-width: 900px) {
+    .economy-grid { grid-template-columns: 1fr; gap: 32px; text-align: left; }
+  }
+
+  /* ========= PROBLEMS / PESTS ========= */
+  .problems { background: var(--paper); }
   .problem-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -580,18 +634,14 @@
     border-bottom: 1px solid var(--ink);
   }
   .problem-cell {
-    background: var(--paper-2);
+    background: var(--paper);
     padding: 40px 28px;
     transition: all 0.4s;
-    cursor: default;
     display: flex;
     flex-direction: column;
     min-height: 280px;
   }
-  .problem-cell:hover {
-    background: var(--ink);
-    color: var(--paper);
-  }
+  .problem-cell:hover { background: var(--ink); color: var(--paper); }
   .problem-cell:hover .p-num { color: var(--lime); }
   .problem-cell:hover .p-icon { background: var(--lime); color: var(--ink); }
   .problem-cell:hover .p-desc { color: rgba(253, 250, 242, 0.7); }
@@ -600,20 +650,17 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px;
     color: var(--ink-soft);
-    margin-bottom: 32px;
+    margin-bottom: 28px;
     letter-spacing: 0.1em;
     transition: color 0.3s;
   }
   .p-icon {
-    width: 56px;
-    height: 56px;
+    width: 56px; height: 56px;
     background: var(--ink);
     color: var(--lime);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
+    display: grid; place-items: center;
+    margin-bottom: 22px;
     transition: all 0.3s;
   }
   .p-title {
@@ -631,164 +678,260 @@
     transition: color 0.3s;
     margin-top: auto;
   }
-
   @media (max-width: 900px) {
     .problem-list { grid-template-columns: repeat(2, 1fr); }
-    .problem-cell { padding: 28px 22px; min-height: 230px; }
-    .p-num { margin-bottom: 22px; }
-    .p-icon { width: 48px; height: 48px; margin-bottom: 18px; }
+    .problem-cell { padding: 28px 22px; min-height: 220px; }
+    .p-num { margin-bottom: 20px; }
+    .p-icon { width: 48px; height: 48px; margin-bottom: 16px; }
     .p-title { font-size: 18px; }
   }
   @media (max-width: 500px) {
     .problem-list { grid-template-columns: 1fr; }
-    .problem-cell { min-height: auto; padding: 26px 20px; }
+    .problem-cell { min-height: auto; padding: 24px 20px; }
   }
 
-  /* PRODUCT SPEC */
-  .product-spec { background: var(--paper); }
-  .spec-grid {
+  /* ========= COMPARISON ========= */
+  .compare { background: var(--ink); color: var(--paper); }
+  .compare .section-title { color: var(--paper); }
+  .compare .section-title em { color: var(--lime); }
+  .compare .section-lead { color: rgba(253, 250, 242, 0.7); }
+  .compare .lab-label { color: var(--lime); }
+  .compare-grid {
     display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-  .spec-visual {
-    aspect-ratio: 1;
-    background: linear-gradient(160deg, #1A1A18 0%, #0A0A08 100%);
-    border-radius: 24px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .spec-visual::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(circle at 30% 30%, rgba(197, 249, 74, 0.18), transparent 55%),
-      radial-gradient(circle at 70% 80%, rgba(255, 61, 20, 0.06), transparent 50%);
-  }
-  .spec-visual::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-      repeating-linear-gradient(45deg, transparent 0, transparent 30px, rgba(197, 249, 74, 0.04) 30px, rgba(197, 249, 74, 0.04) 31px);
-  }
-  .spec-visual .spec-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 78%;
-    aspect-ratio: 1 / 1;
-    background: radial-gradient(circle at 50% 45%, rgba(253, 250, 242, 0.15) 0%, rgba(197, 249, 74, 0.06) 45%, transparent 70%);
-    border-radius: 50%;
-    filter: blur(24px);
-    z-index: 1;
-  }
-  .spec-product {
-    position: relative;
-    z-index: 2;
-    width: auto;
-    max-width: 75%;
-    height: auto;
-    max-height: 88%;
-    object-fit: contain;
-    filter: drop-shadow(0 25px 50px rgba(197, 249, 74, 0.2)) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
-  }
-  .spec-floating {
-    position: absolute;
-    z-index: 3;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    color: var(--lime);
-    letter-spacing: 0.1em;
-  }
-  .spec-floating.sf-1 { top: 12%; left: 8%; }
-  .spec-floating.sf-2 { top: 30%; right: 10%; text-align: right; }
-  .spec-floating.sf-3 { bottom: 18%; left: 12%; }
-  .spec-floating .big {
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--paper);
-    display: block;
-    line-height: 1;
-    margin-top: 4px;
-    letter-spacing: -0.02em;
-  }
-
-  .spec-text .section-title { font-size: clamp(36px, 5vw, 60px); }
-  .spec-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 80px 1fr;
+    align-items: stretch;
     gap: 0;
-    margin-top: 40px;
-    border-top: 1px solid var(--line);
   }
-  .spec-row {
-    padding: 20px 0;
-    border-bottom: 1px solid var(--line);
+  .compare-col {
+    padding: 48px 36px;
+    border: 1px solid rgba(253, 250, 242, 0.14);
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 4px;
   }
-  .spec-row:nth-child(odd) { padding-right: 24px; }
-  .spec-row:nth-child(even) { padding-left: 24px; border-left: 1px solid var(--line); }
-  .spec-key {
+  .compare-col.winner {
+    background: var(--lime);
+    color: var(--ink);
+    border-color: var(--lime);
+  }
+  .compare-col.loser { background: rgba(253, 250, 242, 0.03); }
+  .compare-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .compare-col.winner .compare-title { color: var(--lime-dark); }
+  .compare-tag {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
-    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 24px;
+    opacity: 0.7;
+  }
+  .compare-price {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin-bottom: 8px;
+  }
+  .compare-price small { font-size: 0.4em; font-weight: 500; opacity: 0.75; }
+  .compare-unit { font-size: 13px; opacity: 0.7; margin-bottom: 28px; }
+  .compare-col.loser .compare-price { text-decoration: line-through; text-decoration-color: var(--fire); text-decoration-thickness: 4px; }
+  .compare-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .compare-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .compare-list li::before {
+    content: "✓";
+    font-weight: 800;
+    color: var(--lime-dark);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .compare-col.loser .compare-list li::before { content: "✕"; color: var(--fire); }
+  .compare-vs {
+    display: grid;
+    place-items: center;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--lime);
+    font-style: italic;
+  }
+  @media (max-width: 900px) {
+    .compare-grid { grid-template-columns: 1fr; }
+    .compare-vs { padding: 24px 0; font-size: 24px; }
+    .compare-col { padding: 36px 28px; }
+    .compare-title { font-size: 26px; }
+    .compare-price { font-size: 40px; }
+  }
+
+  /* ========= CROPS ========= */
+  .crops { background: var(--paper-2); }
+  .crops-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .crop-card {
+    aspect-ratio: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    background: var(--ink);
+    color: var(--paper);
+    transition: transform 0.4s;
+  }
+  .crop-card:hover { transform: translateY(-4px); }
+  .crop-card .crop-img {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s;
+  }
+  .crop-card:hover .crop-img { transform: scale(1.08); }
+  .crop-card::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(0deg, rgba(10,10,8,0.85) 0%, transparent 60%);
+  }
+  .crop-card-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 18px;
+    z-index: 1;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .crop-card-label small {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+  }
+  .crops-caption {
+    text-align: center;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    margin-bottom: 48px;
+  }
+  .crops-caption em { font-family: 'Instrument Serif', serif; color: var(--leaf); font-weight: 400; font-style: italic; letter-spacing: 0; }
+  @media (max-width: 700px) { .crops-row { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ========= CERT BANNER ========= */
+  .cert {
+    background: var(--paper);
+    padding: 80px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .cert-inner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 40px;
+    align-items: center;
+  }
+  .cert-seal {
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    background: var(--lime);
+    color: var(--ink);
+    display: grid;
+    place-items: center;
+    position: relative;
+    transform: rotate(-8deg);
+    border: 2px solid var(--ink);
+  }
+  .cert-seal::before, .cert-seal::after {
+    content: "";
+    position: absolute; inset: 8px;
+    border-radius: 50%;
+    border: 1px dashed var(--ink);
+  }
+  .cert-seal-text {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    text-align: center;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    padding: 20px;
+  }
+  .cert-seal-text small { display: block; font-size: 9px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.15em; opacity: 0.7; margin-top: 4px; }
+  .cert-body h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(26px, 3.6vw, 44px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin-bottom: 10px;
+  }
+  .cert-body h2 em { font-family: 'Instrument Serif', serif; color: var(--leaf); font-weight: 400; font-style: italic; }
+  .cert-body p { color: var(--ink-soft); font-size: 15px; line-height: 1.6; max-width: 540px; }
+  .cert-badges { display: flex; flex-direction: column; gap: 10px; }
+  .cert-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border: 1.5px solid var(--ink);
+    border-radius: 100px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
   }
-  .spec-value {
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--ink);
-    letter-spacing: -0.02em;
+  .cert-badge::before {
+    content: "";
+    width: 8px; height: 8px;
+    background: var(--lime-deep);
+    border-radius: 50%;
   }
-  .spec-value small { font-size: 13px; font-weight: 500; color: var(--ink-soft); letter-spacing: 0; }
-
-  @media (max-width: 900px) {
-    .spec-grid { grid-template-columns: 1fr; gap: 40px; }
-    .spec-visual { max-width: 460px; margin: 0 auto; width: 100%; }
-    .spec-list { grid-template-columns: 1fr; margin-top: 28px; }
-    .spec-row:nth-child(odd) { padding-right: 0; }
-    .spec-row:nth-child(even) { padding-left: 0; border-left: none; }
-    .spec-floating { display: none; }
+  @media (max-width: 800px) {
+    .cert-inner { grid-template-columns: auto 1fr; }
+    .cert-badges { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; }
   }
-  @media (max-width: 640px) {
-    .spec-value { font-size: 19px; }
+  @media (max-width: 500px) {
+    .cert-inner { grid-template-columns: 1fr; text-align: left; gap: 24px; }
+    .cert-seal { width: 100px; height: 100px; }
   }
 
-  /* MECHANISM */
-  .mechanism {
-    background: var(--ink);
-    color: var(--paper);
-    position: relative;
-    overflow: hidden;
-  }
+  /* ========= MECHANISM ========= */
+  .mechanism { background: var(--ink); color: var(--paper); overflow: hidden; }
   .mechanism::before {
     content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(circle at 80% 50%, rgba(197, 249, 74, 0.08), transparent 50%);
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 80% 40%, rgba(197, 249, 74, 0.10), transparent 50%);
+    pointer-events: none;
   }
   .mechanism .section-title { color: var(--paper); }
   .mechanism .section-title em { color: var(--lime); }
   .mechanism .section-lead { color: rgba(253, 250, 242, 0.7); }
   .mechanism .lab-label { color: var(--lime); }
-
   .mech-display {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0;
     position: relative;
   }
   .mech-card {
@@ -799,7 +942,7 @@
   .mech-card:last-child { border-right: none; }
   .mech-card-num {
     font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 100px;
+    font-size: 110px;
     font-weight: 800;
     line-height: 0.8;
     color: transparent;
@@ -813,14 +956,10 @@
     font-weight: 700;
     margin-bottom: 16px;
     letter-spacing: -0.02em;
-    line-height: 1.1;
+    line-height: 1.15;
   }
   .mech-card h3 .accent { color: var(--lime); }
-  .mech-card p {
-    font-size: 15px;
-    color: rgba(253, 250, 242, 0.7);
-    line-height: 1.6;
-  }
+  .mech-card p { font-size: 15px; color: rgba(253, 250, 242, 0.7); line-height: 1.65; }
   .mech-tag {
     display: inline-flex;
     align-items: center;
@@ -834,99 +973,79 @@
     margin-top: 24px;
     border: 1px solid rgba(197, 249, 74, 0.3);
   }
-
   @media (max-width: 900px) {
     .mech-display { grid-template-columns: 1fr; }
-    .mech-card { border-right: none; border-bottom: 1px solid rgba(253, 250, 242, 0.12); padding: 36px 0; }
+    .mech-card { border-right: none; border-bottom: 1px solid rgba(253, 250, 242, 0.12); padding: 32px 0; }
     .mech-card:first-child { padding-top: 0; }
     .mech-card:last-child { border-bottom: none; padding-bottom: 0; }
-    .mech-card-num { font-size: 72px; margin-bottom: 20px; }
+    .mech-card-num { font-size: 80px; margin-bottom: 22px; }
     .mech-card h3 { font-size: 22px; }
   }
 
-  /* BENEFITS */
-  .benefits { background: var(--paper-2); }
-  .ben-grid {
+  /* ========= RESULTS ========= */
+  .results { background: var(--paper); }
+  .results-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--ink);
   }
-  .ben-card {
-    background: var(--paper);
-    border-radius: 20px;
-    padding: 36px 28px;
-    border: 1px solid var(--line);
-    transition: all 0.3s;
+  .result-card {
+    padding: 64px 48px;
     position: relative;
     overflow: hidden;
-  }
-  .ben-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px -20px rgba(10, 10, 8, 0.2);
-  }
-  .ben-1 { grid-column: span 4; background: var(--ink); color: var(--paper); }
-  .ben-2 { grid-column: span 2; background: var(--lime); }
-  .ben-3 { grid-column: span 2; }
-  .ben-4 { grid-column: span 2; }
-  .ben-5 { grid-column: span 2; }
-
-  .ben-card h3 {
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1.15;
-    margin-bottom: 12px;
-    letter-spacing: -0.02em;
-  }
-  .ben-1 h3 { font-size: 36px; }
-  .ben-2 h3 { color: var(--lime-dark); }
-
-  .ben-card p {
-    font-size: 14px;
-    color: var(--ink-soft);
-    line-height: 1.6;
-  }
-  .ben-1 p { color: rgba(253, 250, 242, 0.7); font-size: 15px; }
-  .ben-2 p { color: var(--lime-dark); font-weight: 500; }
-
-  .ben-icon {
-    width: 48px;
-    height: 48px;
-    background: var(--paper-2);
-    color: var(--ink);
-    border-radius: 12px;
+    min-height: 360px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    margin-bottom: 24px;
   }
-  .ben-1 .ben-icon { background: var(--lime); color: var(--ink); }
-  .ben-2 .ben-icon { background: var(--ink); color: var(--lime); }
-
-  .ben-mega {
+  .result-card + .result-card { border-left: 1px solid var(--ink); }
+  .result-card.lime { background: var(--lime); color: var(--ink); }
+  .result-card.dark { background: var(--ink); color: var(--paper); }
+  .result-num {
     font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 64px;
+    font-size: clamp(80px, 14vw, 200px);
     font-weight: 800;
-    line-height: 0.9;
-    color: var(--lime);
-    margin: 8px 0;
-    letter-spacing: -0.04em;
+    line-height: 0.85;
+    letter-spacing: -0.05em;
   }
-  .ben-mega small { font-size: 18px; color: rgba(253, 250, 242, 0.6); display: block; font-weight: 400; margin-top: 6px; letter-spacing: 0; }
-
+  .result-num small { font-size: 0.3em; font-weight: 500; opacity: 0.75; }
+  .result-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.75;
+    margin-bottom: 18px;
+  }
+  .result-card h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(22px, 2.5vw, 32px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin-top: 16px;
+    max-width: 380px;
+  }
+  .result-card.dark h3 em { color: var(--lime); font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+  .result-card.lime h3 em { color: var(--leaf-deep); font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+  .result-card .deco {
+    position: absolute;
+    right: -40px;
+    bottom: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 1px dashed currentColor;
+    opacity: 0.2;
+  }
   @media (max-width: 900px) {
-    .ben-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    .ben-1, .ben-2, .ben-3, .ben-4, .ben-5 { grid-column: span 2; }
-    .ben-card { padding: 28px 22px; }
-    .ben-1 h3 { font-size: 26px; }
-    .ben-mega { font-size: 48px; }
-  }
-  @media (max-width: 500px) {
-    .ben-grid { grid-template-columns: 1fr; }
+    .results-grid { grid-template-columns: 1fr; }
+    .result-card + .result-card { border-left: none; border-top: 1px solid var(--ink); }
+    .result-card { padding: 48px 28px; min-height: auto; }
   }
 
-  /* USAGE / HOW TO USE */
-  .usage { background: var(--paper); }
+  /* ========= USAGE ========= */
+  .usage { background: var(--paper-2); }
   .usage-wrap {
     background: var(--ink);
     border-radius: 32px;
@@ -937,14 +1056,13 @@
   }
   .usage-wrap::before {
     content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(circle at 90% 0%, rgba(197, 249, 74, 0.15), transparent 50%);
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 90% 0%, rgba(197, 249, 74, 0.15), transparent 50%);
+    pointer-events: none;
   }
   .usage-grid {
     display: grid;
-    grid-template-columns: 1fr 1.3fr;
+    grid-template-columns: 1fr 1.35fr;
     gap: 60px;
     align-items: start;
     position: relative;
@@ -952,16 +1070,15 @@
   }
   .usage-left h2 {
     font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 52px;
-    line-height: 0.95;
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 0.96;
     font-weight: 700;
-    color: var(--paper);
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     letter-spacing: -0.035em;
   }
-  .usage-left h2 em { font-style: italic; color: var(--lime); font-weight: 500; }
-  .usage-left .lab-label { color: var(--lime); margin-bottom: 24px; display: inline-flex; }
-  .usage-left p { color: rgba(253, 250, 242, 0.7); font-size: 16px; line-height: 1.6; margin-bottom: 24px; }
+  .usage-left h2 em { font-family: 'Instrument Serif', serif; color: var(--lime); font-style: italic; font-weight: 400; letter-spacing: 0; }
+  .usage-left .lab-label { color: var(--lime); margin-bottom: 20px; display: inline-flex; }
+  .usage-left p { color: rgba(253, 250, 242, 0.72); font-size: 16px; line-height: 1.65; margin-bottom: 24px; }
   .usage-warn {
     background: rgba(255, 61, 20, 0.1);
     border: 1px solid rgba(255, 61, 20, 0.3);
@@ -984,9 +1101,9 @@
   }
   .dosage-row {
     display: grid;
-    grid-template-columns: 1fr 1.8fr;
+    grid-template-columns: 1fr 1.6fr;
     border-bottom: 1px solid rgba(253, 250, 242, 0.08);
-    padding: 20px 24px;
+    padding: 18px 24px;
     gap: 16px;
   }
   .dosage-row:last-child { border-bottom: none; }
@@ -1002,91 +1119,210 @@
   }
   .dosage-key::before {
     content: "";
-    width: 6px;
-    height: 6px;
+    width: 6px; height: 6px;
     background: var(--lime);
     border-radius: 50%;
   }
   .dosage-val {
     font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
-    color: var(--paper);
     letter-spacing: -0.01em;
   }
-  .dosage-val .big {
-    color: var(--lime);
-    font-size: 22px;
-  }
+  .dosage-val .big { color: var(--lime); font-size: 22px; }
   .dosage-val small { font-size: 13px; font-weight: 400; color: rgba(253, 250, 242, 0.6); font-family: 'Be Vietnam Pro', sans-serif; display: block; margin-top: 4px; }
-
   @media (max-width: 900px) {
     .usage-wrap { padding: 40px 28px; border-radius: 24px; }
     .usage-grid { grid-template-columns: 1fr; gap: 36px; }
-    .usage-left h2 { font-size: 36px; }
     .dosage-row { grid-template-columns: 1fr; gap: 6px; padding: 16px 20px; }
   }
   @media (max-width: 500px) {
     .usage-wrap { padding: 32px 20px; border-radius: 20px; }
-    .usage-left h2 { font-size: 30px; }
     .dosage-val .big { font-size: 18px; }
   }
 
-  /* REVIEWS */
+  /* ========= QUICK CTA ========= */
+  .quickcta {
+    background: linear-gradient(180deg, var(--fire) 0%, var(--fire-deep) 100%);
+    color: var(--paper);
+    padding: 96px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .quickcta::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 20% 50%, rgba(244, 184, 62, 0.3), transparent 50%);
+    pointer-events: none;
+  }
+  .quickcta-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+  .quickcta h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(38px, 5.5vw, 76px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .quickcta h2 em { color: var(--gold); font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; text-transform: none; letter-spacing: 0; }
+  .quickcta p {
+    font-size: 17px;
+    margin-bottom: 36px;
+    opacity: 0.92;
+  }
+  .quickcta-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 10px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .quickcta-form input {
+    padding: 16px 20px;
+    border: 0;
+    border-radius: 100px;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 15px;
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .quickcta-form input:focus { outline: 2px solid var(--gold); }
+  .quickcta-form button {
+    background: var(--ink);
+    color: var(--gold);
+    padding: 16px 28px;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+  .quickcta-form button:hover { background: var(--lime); color: var(--ink); }
+  .quickcta-note {
+    margin-top: 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.7;
+  }
+  @media (max-width: 700px) {
+    .quickcta { padding: 64px 0; }
+    .quickcta-form { grid-template-columns: 1fr; }
+  }
+
+  /* ========= TESTIMONIALS ========= */
+  .testify { background: var(--paper); }
+  .testify-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .testify-card {
+    background: var(--paper-2);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+  .testify-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -20px rgba(10,10,8,0.2); }
+  .testify-photo {
+    aspect-ratio: 4 / 3;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--ink);
+    position: relative;
+  }
+  .testify-photo::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(0deg, rgba(10,10,8,0.6) 0%, transparent 50%);
+  }
+  .testify-photo .photo-tag {
+    position: absolute;
+    bottom: 16px; left: 16px;
+    background: var(--lime);
+    color: var(--ink);
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .testify-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+  .testify-stars { display: flex; gap: 3px; color: var(--gold); margin-bottom: 14px; }
+  .testify-body blockquote {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+    flex: 1;
+  }
+  .testify-body blockquote::before { content: "“"; color: var(--leaf); font-size: 32px; line-height: 0; vertical-align: -8px; margin-right: 4px; font-family: 'Instrument Serif', serif; }
+  .testify-author {
+    display: flex; align-items: center; gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+  .testify-avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--lime);
+    display: grid; place-items: center;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+  }
+  .testify-name { font-weight: 600; font-size: 15px; line-height: 1.1; }
+  .testify-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-soft); letter-spacing: 0.05em; margin-top: 2px; }
+  @media (max-width: 900px) { .testify-grid { grid-template-columns: 1fr; } }
+
+  /* ========= REVIEWS ========= */
   .reviews { background: var(--paper-2); }
   .reviews-top {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
-    margin-bottom: 64px;
+    margin-bottom: 60px;
     align-items: center;
-  }
-  .review-summary {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
   }
   .review-score {
     font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 120px;
-    font-weight: 700;
+    font-size: clamp(80px, 14vw, 160px);
+    font-weight: 800;
     line-height: 0.85;
-    color: var(--ink);
     letter-spacing: -0.05em;
     display: flex;
     align-items: baseline;
-    gap: 8px;
+    gap: 12px;
+    margin-bottom: 12px;
   }
-  .review-score small {
-    font-size: 28px;
-    color: var(--ink-soft);
-    font-weight: 400;
-  }
-  .review-stars {
-    display: flex;
-    gap: 4px;
-    color: var(--fire);
-    margin-bottom: 8px;
-  }
+  .review-score small { font-size: 28px; color: var(--ink-soft); font-weight: 400; }
+  .review-stars-big { display: flex; gap: 4px; color: var(--gold); margin-bottom: 12px; }
   .review-summary p {
     font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 500;
-    color: var(--ink);
     letter-spacing: -0.02em;
+    margin-bottom: 8px;
   }
-  .review-summary .count {
+  .review-count {
     font-family: 'JetBrains Mono', monospace;
     font-size: 13px;
     color: var(--ink-soft);
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
   }
-
-  .review-bars {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
+  .review-bars { display: flex; flex-direction: column; gap: 14px; }
   .bar-row {
     display: grid;
     grid-template-columns: 40px 1fr 50px;
@@ -1100,87 +1336,21 @@
     background: var(--paper);
     border-radius: 100px;
     overflow: hidden;
-    position: relative;
+    border: 1px solid var(--line);
   }
   .bar-fill {
     height: 100%;
     background: var(--ink);
     border-radius: 100px;
-    transition: width 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: width 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
-  .bar-fill.lime { background: var(--lime-deep); }
-
-  .review-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-  .review-card {
-    background: var(--paper);
-    border-radius: 20px;
-    padding: 32px 28px;
-    border: 1px solid var(--line);
-    transition: all 0.3s;
-    display: flex;
-    flex-direction: column;
-  }
-  .review-card:hover {
-    border-color: var(--ink);
-    transform: translateY(-3px);
-  }
-  .review-card .review-stars { margin-bottom: 16px; }
-  .review-card blockquote {
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 18px;
-    line-height: 1.4;
-    color: var(--ink);
-    font-weight: 500;
-    margin-bottom: 24px;
-    letter-spacing: -0.01em;
-    flex: 1;
-  }
-  .review-author {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding-top: 20px;
-    border-top: 1px solid var(--line);
-  }
-  .rv-avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--ink);
-    color: var(--lime);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-  }
-  .rv-name {
-    font-weight: 600;
-    color: var(--ink);
-    font-size: 15px;
-    line-height: 1.2;
-  }
-  .rv-meta {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--ink-soft);
-    letter-spacing: 0.05em;
-  }
+  .bar-fill.gold { background: var(--gold); }
 
   @media (max-width: 900px) {
     .reviews-top { grid-template-columns: 1fr; gap: 36px; margin-bottom: 40px; }
-    .review-grid { grid-template-columns: 1fr; gap: 14px; }
-    .review-score { font-size: 80px; }
-    .review-card { padding: 26px 22px; }
-    .review-card blockquote { font-size: 16px; }
   }
 
-  /* ORDER FORM */
+  /* ========= ORDER FORM ========= */
   .order { background: var(--paper); }
   .order-wrap {
     display: grid;
@@ -1191,18 +1361,18 @@
     position: relative;
   }
   .order-info {
-    padding: 60px 48px;
+    padding: 56px 44px;
     color: var(--paper);
     position: relative;
     overflow: hidden;
   }
   .order-info::before {
     content: "";
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0;
     background-image:
       radial-gradient(circle at 100% 0%, rgba(197, 249, 74, 0.2), transparent 50%),
       radial-gradient(circle at 0% 100%, rgba(255, 61, 20, 0.1), transparent 50%);
+    pointer-events: none;
   }
   .order-info-content { position: relative; z-index: 1; }
   .urgency-bar {
@@ -1218,12 +1388,11 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
   .urgency-bar::before {
     content: "";
-    width: 8px;
-    height: 8px;
+    width: 8px; height: 8px;
     background: white;
     border-radius: 50%;
     animation: pulse 1s ease-in-out infinite;
@@ -1235,17 +1404,47 @@
 
   .order-info h2 {
     font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 48px;
-    line-height: 0.95;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 0.96;
     font-weight: 700;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     letter-spacing: -0.035em;
   }
-  .order-info h2 em { color: var(--lime); font-style: italic; font-weight: 500; }
+  .order-info h2 em { color: var(--lime); font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+
+  .countdown {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .cd-cell {
+    background: rgba(253, 250, 242, 0.06);
+    border: 1px solid rgba(253, 250, 242, 0.12);
+    border-radius: 10px;
+    padding: 12px 10px;
+    text-align: center;
+    min-width: 64px;
+  }
+  .cd-num {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    color: var(--lime);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .cd-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(253, 250, 242, 0.55);
+    margin-top: 6px;
+  }
 
   .price-block {
-    margin: 32px 0;
-    padding: 24px;
+    margin: 28px 0;
+    padding: 22px 24px;
     background: rgba(253, 250, 242, 0.05);
     border: 1px dashed rgba(253, 250, 242, 0.2);
     border-radius: 16px;
@@ -1263,11 +1462,12 @@
     align-items: baseline;
     gap: 16px;
     margin-bottom: 8px;
+    flex-wrap: wrap;
   }
   .price-now {
     font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 56px;
-    font-weight: 700;
+    font-size: 52px;
+    font-weight: 800;
     color: var(--lime);
     letter-spacing: -0.04em;
     line-height: 1;
@@ -1290,29 +1490,22 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
-
-  .order-perks {
-    list-style: none;
-    margin-top: 24px;
-  }
+  .order-perks { list-style: none; margin-top: 22px; }
   .order-perks li {
     display: flex;
     gap: 14px;
-    padding: 14px 0;
+    padding: 13px 0;
     border-bottom: 1px solid rgba(253, 250, 242, 0.08);
     font-size: 15px;
     align-items: center;
   }
   .order-perks li:last-child { border-bottom: none; }
-  .order-perks .perk-check {
-    width: 24px;
-    height: 24px;
+  .perk-check {
+    width: 22px; height: 22px;
     border-radius: 50%;
     background: var(--lime);
     color: var(--ink);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid; place-items: center;
     flex-shrink: 0;
   }
   .order-perks strong { color: var(--lime); }
@@ -1320,28 +1513,19 @@
   /* FORM */
   .order-form {
     background: var(--paper);
-    padding: 60px 48px;
+    padding: 56px 44px;
     color: var(--ink);
   }
-  .order-form .lab-label {
-    color: var(--fire);
-    margin-bottom: 16px;
-  }
+  .order-form .lab-label { color: var(--fire); margin-bottom: 14px; }
   .order-form h3 {
     font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 32px;
+    font-size: 30px;
     line-height: 1.1;
     margin-bottom: 8px;
     letter-spacing: -0.025em;
   }
-  .order-form > p {
-    color: var(--ink-soft);
-    font-size: 15px;
-    margin-bottom: 28px;
-  }
-  .form-field {
-    margin-bottom: 18px;
-  }
+  .order-form > p { color: var(--ink-soft); font-size: 15px; margin-bottom: 24px; }
+  .form-field { margin-bottom: 16px; }
   .form-field label {
     display: block;
     font-family: 'JetBrains Mono', monospace;
@@ -1355,7 +1539,7 @@
   .form-field select,
   .form-field textarea {
     width: 100%;
-    padding: 16px 18px;
+    padding: 15px 18px;
     border: 1.5px solid var(--line);
     border-radius: 12px;
     font-size: 15px;
@@ -1371,25 +1555,21 @@
     border-color: var(--ink);
     background: var(--paper-2);
   }
-  .form-cols {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-  }
+  .form-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .qty-picker {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 8px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
   .qty-opt {
-    flex: 1;
     padding: 14px 12px;
     border: 1.5px solid var(--line);
     border-radius: 12px;
     text-align: center;
-    cursor: pointer;
     transition: all 0.2s;
     background: var(--paper);
+    position: relative;
   }
   .qty-opt.active, .qty-opt:hover {
     border-color: var(--ink);
@@ -1397,10 +1577,24 @@
     color: var(--paper);
   }
   .qty-opt.active .qty-price, .qty-opt:hover .qty-price { color: var(--lime); }
+  .qty-opt.popular::after {
+    content: "PHỔ BIẾN";
+    position: absolute;
+    top: -10px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--fire);
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 100px;
+    letter-spacing: 0.1em;
+  }
   .qty-num {
     font-family: 'Bricolage Grotesque', sans-serif;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 17px;
     display: block;
     letter-spacing: -0.02em;
   }
@@ -1411,18 +1605,16 @@
     margin-top: 4px;
     transition: color 0.2s;
   }
-
   .submit-btn {
     width: 100%;
     background: var(--fire);
     color: white;
-    padding: 20px;
+    padding: 18px;
     border: none;
     border-radius: 14px;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 700;
-    cursor: pointer;
-    margin-top: 8px;
+    margin-top: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1431,41 +1623,31 @@
     font-family: 'Be Vietnam Pro', sans-serif;
     box-shadow: 0 10px 30px -10px rgba(255, 61, 20, 0.5);
   }
-  .submit-btn:hover {
-    background: var(--ink);
-    color: var(--lime);
-    transform: translateY(-2px);
-  }
+  .submit-btn:hover { background: var(--ink); color: var(--lime); transform: translateY(-2px); }
   .form-foot {
     text-align: center;
-    margin-top: 16px;
+    margin-top: 14px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
     color: var(--ink-soft);
     letter-spacing: 0.08em;
   }
-
   @media (max-width: 900px) {
     .order-wrap { grid-template-columns: 1fr; border-radius: 24px; }
     .order-info, .order-form { padding: 40px 28px; }
     .form-cols { grid-template-columns: 1fr; }
-    .order-info h2 { font-size: 32px; }
-    .price-now { font-size: 48px; }
-    .order-form h3 { font-size: 26px; }
+    .order-info h2 { font-size: 30px; }
+    .price-now { font-size: 42px; }
   }
   @media (max-width: 500px) {
     .order-wrap { border-radius: 20px; }
-    .order-info, .order-form { padding: 32px 20px; }
-    .qty-picker { flex-direction: column; gap: 10px; }
-    .qty-opt { padding: 14px 16px; }
-    .price-now { font-size: 40px; }
-    .price-display { gap: 10px; flex-wrap: wrap; }
+    .order-info, .order-form { padding: 32px 22px; }
+    .qty-picker { grid-template-columns: 1fr; }
+    .price-display { gap: 10px; }
     .price-old { font-size: 18px; }
-    .submit-btn { font-size: 15px; padding: 18px; }
-    .urgency-bar { font-size: 11px; padding: 10px 16px; }
   }
 
-  /* FOOTER */
+  /* ========= FOOTER ========= */
   footer {
     background: var(--ink);
     color: rgba(253, 250, 242, 0.6);
@@ -1477,24 +1659,18 @@
     gap: 48px;
     margin-bottom: 60px;
   }
-  .foot-brand p {
-    font-size: 14px;
-    line-height: 1.6;
-    margin-top: 20px;
-    max-width: 340px;
-  }
+  .foot-brand p { font-size: 14px; line-height: 1.6; margin-top: 18px; max-width: 340px; }
   .foot-brand .logo { color: var(--paper); }
   .foot-col h5 {
     color: var(--paper);
     font-family: 'Bricolage Grotesque', sans-serif;
     font-size: 16px;
-    margin-bottom: 20px;
-    font-weight: 600;
+    margin-bottom: 18px;
+    font-weight: 700;
   }
   .foot-col a {
     display: block;
     color: rgba(253, 250, 242, 0.6);
-    text-decoration: none;
     font-size: 14px;
     padding: 7px 0;
     transition: color 0.2s;
@@ -1513,7 +1689,7 @@
     text-transform: uppercase;
   }
   @media (max-width: 900px) {
-    footer { padding: 60px 0 24px; }
+    footer { padding: 60px 0 100px; }
     .foot-grid { grid-template-columns: 1fr 1fr; gap: 36px; margin-bottom: 40px; }
     .foot-brand { grid-column: span 2; }
   }
@@ -1523,16 +1699,116 @@
     .foot-bottom { flex-direction: column; gap: 10px; align-items: flex-start; }
   }
 
+  /* ========= STICKY BOTTOM BAR (MOBILE) ========= */
+  .sticky-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--ink);
+    border-top: 1px solid rgba(197, 249, 74, 0.3);
+    padding: 12px 16px;
+    z-index: 99;
+    display: none;
+    gap: 10px;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.2);
+  }
+  .sticky-bar button, .sticky-bar a {
+    flex: 1;
+    padding: 14px;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .sticky-bar .sb-order {
+    background: var(--lime);
+    color: var(--ink);
+    border: 1.5px solid var(--lime);
+  }
+  .sticky-bar .sb-call {
+    background: var(--fire);
+    color: white;
+    border: 1.5px solid var(--fire);
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+  @keyframes pulse-soft {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,61,20,0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(255,61,20,0); }
+  }
+  @media (max-width: 900px) {
+    .sticky-bar { display: flex; }
+  }
+
+  /* ========= POPUP ========= */
+  .popup-backdrop {
+    position: fixed; inset: 0;
+    background: rgba(10, 10, 8, 0.7);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .popup-backdrop.active { display: flex; }
+  .popup {
+    background: var(--paper);
+    border-radius: 24px;
+    max-width: 480px;
+    width: 100%;
+    padding: 40px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+  }
+  .popup-close {
+    position: absolute;
+    top: 16px; right: 16px;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--paper-2);
+    display: grid; place-items: center;
+    transition: background 0.2s;
+  }
+  .popup-close:hover { background: var(--ink); color: var(--paper); }
+  .popup-icon {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: var(--lime);
+    margin: 0 auto 20px;
+    display: grid; place-items: center;
+    color: var(--ink);
+  }
+  .popup h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    margin-bottom: 8px;
+  }
+  .popup h3 em { color: var(--leaf); font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+  .popup p { color: var(--ink-soft); margin-bottom: 24px; line-height: 1.6; font-size: 15px; }
+  .popup-cta {
+    background: var(--ink);
+    color: var(--lime);
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-weight: 700;
+    display: inline-block;
+    transition: all 0.2s;
+  }
+  .popup-cta:hover { background: var(--fire); color: white; }
+
   /* Reveal animation */
   .reveal {
     opacity: 0;
     transform: translateY(40px);
     transition: all 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
@@ -1548,7 +1824,7 @@
 </div>
 
 <!-- NAV -->
-<nav>
+<nav class="topnav">
   <div class="container nav-inner">
     <a href="#" class="logo">
       <div class="logo-mark">B</div>
@@ -1559,7 +1835,7 @@
     </a>
     <div class="nav-links">
       <a href="#problem">Đối tượng</a>
-      <a href="#product">Sản phẩm</a>
+      <a href="#compare">So sánh</a>
       <a href="#mechanism">Công nghệ</a>
       <a href="#usage">Cách dùng</a>
       <a href="#reviews">Đánh giá</a>
@@ -1586,7 +1862,7 @@
           Diệt sạch<br>
           <span class="outline">sâu bệnh</span><br>
           <span class="accent">sau 1 lần phun.</span>
-          <span class="small">— Công nghệ Nano + Loang trải, hiệu quả 30 phút.</span>
+          <span class="small">— Công nghệ Nano + Loang trải, hiệu quả 30 phút. Mát bông – mát trái.</span>
         </h1>
         <p class="hero-sub">
           <strong>BIS ONE 350SC</strong> — thuốc trừ sâu công nghệ dạng mát, bào chế theo chuẩn Nhật Bản. Đánh nhanh, diệt gọn hơn <strong>50+ loại côn trùng hại</strong>: rầy nâu, bọ trĩ, rệp sáp, ruồi vàng, nhện đỏ. Không cháy cây, an toàn mọi giai đoạn.
@@ -1601,7 +1877,6 @@
             Xem công nghệ
           </a>
         </div>
-
         <div class="hero-stats">
           <div class="stat-cell">
             <div class="stat-num">30<small>min</small></div>
@@ -1622,11 +1897,9 @@
         <div class="scope-circle"></div>
         <div class="scope-circle-2"></div>
         <div class="crosshair"></div>
-
         <div class="product-bottle-wrap">
           <img class="product-bottle" src="images/img.png" alt="BIS ONE 350SC — Thuốc trừ sâu công nghệ Nano" loading="eager" fetchpriority="high" width="896" height="1195">
         </div>
-
         <div class="data-tag tag-1">
           <span class="num">350</span>
           <span class="label-mini">SC<br>dạng mát</span>
@@ -1642,25 +1915,57 @@
       </div>
     </div>
   </div>
+</section>
 
-  <!-- HERO MARQUEE -->
-  <div class="hero-marquee">
-    <div class="marquee-track">
-      <span>BIS ONE 350SC <span class="star">★</span></span>
-      <span>NANO + LOANG TRẢI <span class="star">★</span></span>
-      <span>ĐÁNH NHANH DIỆT GỌN <span class="star">★</span></span>
-      <span>CÔNG NGHỆ NHẬT BẢN <span class="star">★</span></span>
-      <span>GIẢM 40% HÔM NAY <span class="star">★</span></span>
-      <span>BIS ONE 350SC <span class="star">★</span></span>
-      <span>NANO + LOANG TRẢI <span class="star">★</span></span>
-      <span>ĐÁNH NHANH DIỆT GỌN <span class="star">★</span></span>
-      <span>CÔNG NGHỆ NHẬT BẢN <span class="star">★</span></span>
-      <span>GIẢM 40% HÔM NAY <span class="star">★</span></span>
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>BIS ONE 350SC <span class="star">★</span></span>
+    <span>NANO + LOANG TRẢI <span class="star">★</span></span>
+    <span>ĐÁNH NHANH DIỆT GỌN <span class="star">★</span></span>
+    <span>CÔNG NGHỆ NHẬT BẢN <span class="star">★</span></span>
+    <span>GIẢM 40% HÔM NAY <span class="star">★</span></span>
+    <span>BIS ONE 350SC <span class="star">★</span></span>
+    <span>NANO + LOANG TRẢI <span class="star">★</span></span>
+    <span>ĐÁNH NHANH DIỆT GỌN <span class="star">★</span></span>
+    <span>CÔNG NGHỆ NHẬT BẢN <span class="star">★</span></span>
+    <span>GIẢM 40% HÔM NAY <span class="star">★</span></span>
+  </div>
+</div>
+
+<!-- HOOK BANNER: ĐÁNH NHANH - DIỆT GỌN -->
+<section class="hookbanner" style="padding: 80px 0;">
+  <div class="container">
+    <div class="hookbanner-inner">
+      <div class="hookbanner-sub">[ Cơ chế tác động kép · 2024 ]</div>
+      <h2 style="margin-top: 18px;">
+        Đánh nhanh<br>
+        <span class="stroke">— diệt gọn</span><br>
+        chuyên trị <span class="yellow">côn trùng chích hút.</span>
+      </h2>
     </div>
   </div>
 </section>
 
-<!-- PROBLEMS / ĐỐI TƯỢNG SÂU BỆNH -->
+<!-- ECONOMY: 1 lit / 1.5 ha -->
+<section class="economy">
+  <div class="container">
+    <div class="economy-grid">
+      <div>
+        <span class="lab-label" style="color:var(--fire);margin-bottom:20px;display:inline-flex;">Siêu tiết kiệm</span>
+        <div class="economy-num">1,5<sup>ha</sup></div>
+        <span class="economy-unit">được phủ chỉ với 1 lít.</span>
+      </div>
+      <div class="economy-text">
+        <h2>1 lít BIS ONE<br><em>phun cả vườn</em></h2>
+        <p>Chỉ <strong>5–7.000đ</strong> cho mỗi bình phun 20 lít. Một chai 250ml pha được <strong>400–600 lít nước</strong> — phủ toàn bộ vườn cây trong một lần ra đồng.</p>
+        <div class="economy-area">15.000 m² · <strong>1 lần phun</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMS / PESTS -->
 <section class="problems" id="problem">
   <div class="container">
     <div class="section-head">
@@ -1668,69 +1973,52 @@
       <h2 class="section-title">Hơn <em>50 loại sâu bệnh</em> đang tàn phá vườn cây của bạn.</h2>
       <p class="section-lead">BIS ONE 350SC được kiểm chứng hiệu quả trên các đối tượng phá hoại phổ biến nhất ở Việt Nam — diệt trừ tận gốc chỉ sau 1 lần phun.</p>
     </div>
-
     <div class="problem-list">
       <div class="problem-cell">
         <div class="p-num">[ 01 ]</div>
-        <div class="p-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        </div>
+        <div class="p-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div>
         <div class="p-title">Sâu cuốn lá, sâu đục thân</div>
         <p class="p-desc">Ăn lá non, đục thân khiến cây yếu, gãy đổ. Phổ biến trên lúa, ngô, rau ăn lá.</p>
       </div>
       <div class="problem-cell">
         <div class="p-num">[ 02 ]</div>
-        <div class="p-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 5c0-1.66 4-3 9-3s9 1.34 9 3-4 3-9 3-9-1.34-9-3z"/></svg>
-        </div>
+        <div class="p-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 5c0-1.66 4-3 9-3s9 1.34 9 3-4 3-9 3-9-1.34-9-3z"/></svg></div>
         <div class="p-title">Rầy nâu, rầy xanh</div>
         <p class="p-desc">Chích hút làm vàng lá lúa, gây "cháy rầy" diện rộng trong vụ hè thu.</p>
       </div>
       <div class="problem-cell">
         <div class="p-num">[ 03 ]</div>
-        <div class="p-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="2" x2="12" y2="22"/><path d="M2 12h20"/></svg>
-        </div>
+        <div class="p-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="2" x2="12" y2="22"/><path d="M2 12h20"/></svg></div>
         <div class="p-title">Bọ trĩ, bọ phấn, bọ xít muỗi</div>
         <p class="p-desc">Tấn công đọt non, hoa và trái non. Đặc biệt nguy hiểm với điều, xoài, sầu riêng.</p>
       </div>
       <div class="problem-cell">
         <div class="p-num">[ 04 ]</div>
-        <div class="p-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/></svg>
-        </div>
+        <div class="p-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/></svg></div>
         <div class="p-title">Rệp sáp, rệp muội</div>
         <p class="p-desc">Hút nhựa, tiết mật ngọt kéo theo nấm đen. Khó trị bằng thuốc thông thường.</p>
       </div>
       <div class="problem-cell">
         <div class="p-num">[ 05 ]</div>
-        <div class="p-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/></svg>
-        </div>
+        <div class="p-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/></svg></div>
         <div class="p-title">Nhện đỏ, nhện gié</div>
         <p class="p-desc">Sinh sản cực nhanh ở mặt dưới lá, làm lá xoăn, vàng và rụng hoa hàng loạt.</p>
       </div>
       <div class="problem-cell">
         <div class="p-num">[ 06 ]</div>
-        <div class="p-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c0-5 4-9 9-9s9 4 9 9"/><path d="M3 12c0 5 4 9 9 9s9-4 9-9"/><circle cx="12" cy="12" r="2"/></svg>
-        </div>
+        <div class="p-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c0-5 4-9 9-9s9 4 9 9"/><path d="M3 12c0 5 4 9 9 9s9-4 9-9"/><circle cx="12" cy="12" r="2"/></svg></div>
         <div class="p-title">Ruồi vàng đục trái</div>
         <p class="p-desc">Đẻ trứng vào trái, làm trái thối, rụng. Nỗi ám ảnh của nhà vườn xoài, ổi, mít.</p>
       </div>
       <div class="problem-cell">
         <div class="p-num">[ 07 ]</div>
-        <div class="p-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        </div>
+        <div class="p-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
         <div class="p-title">Bọ cánh cứng</div>
         <p class="p-desc">Ăn lá thành lỗ thủng, gặm vỏ thân non. Lây lan mạnh ở mùa khô.</p>
       </div>
       <div class="problem-cell">
         <div class="p-num">[ 08 ]</div>
-        <div class="p-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
+        <div class="p-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
         <div class="p-title">Sâu đã kháng thuốc</div>
         <p class="p-desc">Sâu đã lờn với thuốc hóa học thông thường — BIS ONE vẫn diệt sạch nhờ công nghệ mới.</p>
       </div>
@@ -1738,59 +2026,85 @@
   </div>
 </section>
 
-<!-- PRODUCT SPEC -->
-<section class="product-spec" id="product">
+<!-- COMPARISON BIS ONE vs Chemical -->
+<section class="compare" id="compare">
   <div class="container">
-    <div class="spec-grid">
-      <div class="spec-visual">
-        <div class="spec-floating sf-1">
-          <span>VERSION</span>
-          <span class="big">350<small style="font-size:14px;opacity:0.6">SC</small></span>
-        </div>
-        <div class="spec-floating sf-2">
-          <span>MADE IN</span>
-          <span class="big">VN/JP</span>
-        </div>
-        <div class="spec-floating sf-3">
-          <span>BATCH</span>
-          <span class="big">2024-A</span>
-        </div>
-
-        <div class="spec-glow"></div>
-        <img class="spec-product" src="images/img.png" alt="BIS ONE 350SC — Chai 250ml công nghệ Nano" loading="lazy" width="896" height="1195">
+    <div class="section-head">
+      <span class="lab-label">Tại sao chọn BIS ONE</span>
+      <h2 class="section-title">BIS ONE vs <em>Thuốc hóa học cũ.</em></h2>
+      <p class="section-lead">Đầu tư thông minh cho mùa vụ. So sánh chi phí, hiệu quả và an toàn giữa BIS ONE 350SC và các thuốc trừ sâu hóa học truyền thống.</p>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-col winner">
+        <div class="compare-tag">★ Khuyến nghị</div>
+        <div class="compare-title">BIS ONE 350SC</div>
+        <div class="compare-price">5–7<small>k</small></div>
+        <div class="compare-unit">/ bình phun 20 lít</div>
+        <ul class="compare-list">
+          <li>Công nghệ SC mát — không gây cháy cây</li>
+          <li>Phun mọi giai đoạn: lá non, đọt non, xổ nhụy, trái non</li>
+          <li>Hiệu quả rõ rệt sau 30 phút</li>
+          <li>Hiệu lực kéo dài 15–20 ngày — không tái phát</li>
+          <li>An toàn cho hệ sinh thái</li>
+        </ul>
       </div>
+      <div class="compare-vs">VS</div>
+      <div class="compare-col loser">
+        <div class="compare-tag" style="color: var(--fire);">⚠ Lỗi thời</div>
+        <div class="compare-title">Thuốc hóa học cũ</div>
+        <div class="compare-price">15–20<small>k</small></div>
+        <div class="compare-unit">/ bình phun 20 lít</div>
+        <ul class="compare-list">
+          <li>Đắt gấp 3 lần — tốn chi phí mỗi vụ</li>
+          <li>Dễ cháy lá, hư đọt non, rụng trái</li>
+          <li>Sâu nhanh nhờn thuốc — phải phun đi phun lại</li>
+          <li>Mùi nồng, độc hại cho người phun</li>
+          <li>Ô nhiễm đất và nguồn nước</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <div class="spec-text">
-        <span class="lab-label" style="color:var(--fire);margin-bottom:24px;">Thông số kỹ thuật</span>
-        <h2 class="section-title">Một chai. <em>Đủ một mùa.</em></h2>
-        <p class="section-lead">Bào chế dạng SC mát theo chuẩn Nhật Bản. Tan 100% trong nước, không gây cháy lá, an toàn cho mọi giai đoạn cây trồng từ lá non đến trái non.</p>
+<!-- CROPS -->
+<section class="crops">
+  <div class="container">
+    <div class="section-head">
+      <span class="lab-label">Cây trồng & giai đoạn</span>
+      <h2 class="section-title">Phun thoải mái — <em>mọi giai đoạn, mọi cây.</em></h2>
+      <p class="section-lead">Dòng thuốc SC mát của BIS ONE an toàn cho lá non, đọt non, xổ nhụy, trái non — phun tự tin cho mọi loại cây trồng từ vườn nhà đến vườn công nghiệp.</p>
+    </div>
 
-        <div class="spec-list">
-          <div class="spec-row">
-            <span class="spec-key">Dạng bào chế</span>
-            <span class="spec-value">350<small> SC (Suspension Concentrate)</small></span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-key">Công nghệ</span>
-            <span class="spec-value">Nano + Loang trải</span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-key">Hiệu quả</span>
-            <span class="spec-value">30 phút<small>rõ rệt sau khi phun</small></span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-key">Phục hồi cây</span>
-            <span class="spec-value">5–7 ngày</span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-key">Năng suất phun</span>
-            <span class="spec-value">1,5 ha/lít</span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-key">Cách ly</span>
-            <span class="spec-value">14 ngày<small>sau lần phun cuối</small></span>
-          </div>
-        </div>
+    <div class="crops-caption">Lá non · đọt non · xổ nhụy · trái non — <em>phun thoải mái</em></div>
+
+    <div class="crops-row">
+      <div class="crop-card"><div class="crop-img" style="background-image: linear-gradient(135deg, #3F6B1F 0%, #234012 100%);"></div><div class="crop-card-label">Sầu riêng<small>cây ăn trái</small></div></div>
+      <div class="crop-card"><div class="crop-img" style="background-image: linear-gradient(135deg, #C5F94A 0%, #4A5D23 100%);"></div><div class="crop-card-label">Lúa<small>cây lương thực</small></div></div>
+      <div class="crop-card"><div class="crop-img" style="background-image: linear-gradient(135deg, #F4B83E 0%, #B85C2A 100%);"></div><div class="crop-card-label">Xoài, ổi<small>cây ăn trái</small></div></div>
+      <div class="crop-card"><div class="crop-img" style="background-image: linear-gradient(135deg, #5A8FB6 0%, #2E3A0A 100%);"></div><div class="crop-card-label">Cà phê, điều<small>cây công nghiệp</small></div></div>
+      <div class="crop-card"><div class="crop-img" style="background-image: linear-gradient(135deg, #9FD32A 0%, #3F6B1F 100%);"></div><div class="crop-card-label">Rau ăn lá<small>rau màu</small></div></div>
+      <div class="crop-card"><div class="crop-img" style="background-image: linear-gradient(135deg, #B85C2A 0%, #0A0A08 100%);"></div><div class="crop-card-label">Tiêu, hồ tiêu<small>cây gia vị</small></div></div>
+      <div class="crop-card"><div class="crop-img" style="background-image: linear-gradient(135deg, #C5F94A 0%, #234012 100%);"></div><div class="crop-card-label">Ngô, đậu<small>cây ngắn ngày</small></div></div>
+      <div class="crop-card"><div class="crop-img" style="background-image: linear-gradient(135deg, #F4B83E 0%, #3F6B1F 100%);"></div><div class="crop-card-label">Hoa kiểng<small>cây cảnh</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATION -->
+<section class="cert">
+  <div class="container">
+    <div class="cert-inner">
+      <div class="cert-seal">
+        <div class="cert-seal-text">CẤP<br>PHÉP<small>2024 / MARD</small></div>
+      </div>
+      <div class="cert-body">
+        <h2>Đã <em>cấp phép</em> — thuốc trừ sâu chính hãng</h2>
+        <p>BIS ONE 350SC đã được Bộ Nông nghiệp & Phát triển Nông thôn cấp phép lưu hành. Triệu nhà nông trên cả nước tin dùng và đồng hành.</p>
+      </div>
+      <div class="cert-badges">
+        <span class="cert-badge">License No. 350SC/2024</span>
+        <span class="cert-badge">MARD Approved</span>
+        <span class="cert-badge">ISO 9001:2015</span>
       </div>
     </div>
   </div>
@@ -1800,11 +2114,10 @@
 <section class="mechanism" id="mechanism">
   <div class="container">
     <div class="section-head">
-      <span class="lab-label">Công nghệ</span>
+      <span class="lab-label">Công nghệ độc quyền</span>
       <h2 class="section-title">Nano + Loang trải — <em>2 công nghệ trong 1 chai.</em></h2>
-      <p class="section-lead">Bisone kết hợp công nghệ hạt Nano siêu nhỏ và công nghệ Loang trải đặc biệt từ Nhật Bản — cho phép hoạt chất tiếp cận và tiêu diệt côn trùng ở mọi ngóc ngách của lá, kể cả mặt dưới và đọt non.</p>
+      <p class="section-lead">BIS ONE kết hợp công nghệ hạt Nano siêu nhỏ và công nghệ Loang trải đặc biệt từ Nhật Bản — cho phép hoạt chất tiếp cận và tiêu diệt côn trùng ở mọi ngóc ngách của lá, kể cả mặt dưới và đọt non.</p>
     </div>
-
     <div class="mech-display">
       <div class="mech-card">
         <div class="mech-card-num">01</div>
@@ -1828,53 +2141,25 @@
   </div>
 </section>
 
-<!-- BENEFITS -->
-<section class="benefits" id="benefits">
+<!-- RESULTS: 30 PHÚT + 5-7 NGÀY -->
+<section class="results">
   <div class="container">
     <div class="section-head">
-      <span class="lab-label">Ưu điểm vượt trội</span>
-      <h2 class="section-title">5 lý do nhà vườn <em>chuyển sang BIS ONE.</em></h2>
+      <span class="lab-label">Kết quả thực tế</span>
+      <h2 class="section-title">Hiệu quả nhanh. <em>Phục hồi gọn.</em></h2>
     </div>
-
-    <div class="ben-grid">
-      <div class="ben-card ben-1">
-        <div class="ben-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
-        <h3>Đánh nhanh — Diệt gọn. Côn trùng không tái xuất hiện.</h3>
-        <p>Hiệu quả thấy rõ chỉ sau 30 phút phun. Cây hồi phục, ra đọt non sau 5–7 ngày. Lực hiệu kéo dài, ngăn sâu bệnh quay lại trong cả vụ.</p>
+    <div class="results-grid">
+      <div class="result-card lime">
+        <div class="result-label">Tốc độ tác động</div>
+        <div class="result-num">30<small>min</small></div>
+        <h3>Sâu rớt đầy gốc — <em>thấy rõ trong ngày phun</em></h3>
+        <div class="deco"></div>
       </div>
-
-      <div class="ben-card ben-2">
-        <div class="ben-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        </div>
-        <h3>Rẻ hơn 1/3 thị trường</h3>
-        <p>Chỉ 5–7k cho bình 20L. 1 chai 250ml pha được 400–600L nước.</p>
-      </div>
-
-      <div class="ben-card ben-3">
-        <div class="ben-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-        </div>
-        <h3>Không cháy cây</h3>
-        <p>Dạng SC mát, phun được mọi giai đoạn: lá non, đọt non, xổ nhụy, trái non.</p>
-      </div>
-
-      <div class="ben-card ben-4">
-        <div class="ben-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <h3>Tiết kiệm thời gian</h3>
-        <p>1 lần phun = 1 vụ yên tâm. Không phải phun lặp lại nhiều lần như thuốc cũ.</p>
-      </div>
-
-      <div class="ben-card ben-5">
-        <div class="ben-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <h3>Đã cấp phép</h3>
-        <p>Đầy đủ giấy tờ pháp lý. Triệu nhà nông tin dùng tại Việt Nam.</p>
+      <div class="result-card dark">
+        <div class="result-label">Thời gian phục hồi</div>
+        <div class="result-num">5–7<small>ngày</small></div>
+        <h3>Cây ra đọt non, hoa nở lại — <em>vườn xanh trở lại</em></h3>
+        <div class="deco" style="color: var(--lime);"></div>
       </div>
     </div>
   </div>
@@ -1894,7 +2179,6 @@
             <span><strong>Lưu ý:</strong> Sử dụng đồ bảo hộ khi phun. Đậy nắp kỹ sau khi mở. Bảo quản nơi khô ráo, tránh ánh nắng trực tiếp.</span>
           </div>
         </div>
-
         <div class="dosage-table">
           <div class="dosage-row">
             <span class="dosage-key">Liều dùng</span>
@@ -1920,6 +2204,106 @@
             <span class="dosage-key">Cách phun</span>
             <span class="dosage-val">Ướt đều tán cây<small>Tập trung mặt dưới lá, đọt non, kẽ trái</small></span>
           </div>
+          <div class="dosage-row">
+            <span class="dosage-key">Cách ly</span>
+            <span class="dosage-val"><span class="big">14</span> ngày sau lần phun cuối</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK CTA -->
+<section class="quickcta">
+  <div class="container">
+    <div class="quickcta-inner">
+      <div class="hookbanner-sub" style="opacity: 0.85;">[ Đăng ký ngay · tư vấn miễn phí 24/7 ]</div>
+      <h2 style="margin-top: 18px;">Đăng ký <em>nhận tư vấn</em><br>kỹ thuật miễn phí</h2>
+      <p>Để lại số điện thoại — kỹ sư nông nghiệp BIS ONE sẽ gọi lại trong vòng 5–10 phút để tư vấn miễn phí cho khu vườn của bạn.</p>
+      <form class="quickcta-form" onsubmit="event.preventDefault(); openPopup('thank-you');">
+        <input type="text" placeholder="Họ và tên" aria-label="Họ và tên" required>
+        <input type="tel" placeholder="Số điện thoại" aria-label="Số điện thoại" required>
+        <button type="submit">Tư vấn ngay</button>
+      </form>
+      <div class="quickcta-note">[ 🔒 Thông tin được mã hóa · không spam ]</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testify">
+  <div class="container">
+    <div class="section-head">
+      <span class="lab-label">Phản hồi từ nhà vườn</span>
+      <h2 class="section-title">Khách hàng đã <em>tin dùng &amp; chia sẻ.</em></h2>
+      <p class="section-lead">Hàng nghìn nhà vườn từ Tiền Giang đến Đắk Lắk đã chuyển sang BIS ONE 350SC sau khi thấy hiệu quả rõ rệt chỉ trong vài ngày.</p>
+    </div>
+    <div class="testify-grid">
+      <div class="testify-card">
+        <div class="testify-photo" style="background-image: linear-gradient(135deg, #3F6B1F 0%, #234012 100%);">
+          <div class="photo-tag">★ Vườn sầu riêng · 5 sào</div>
+        </div>
+        <div class="testify-body">
+          <div class="testify-stars">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote>Phun buổi sáng, đến chiều thấy sâu rớt đầy gốc. Vườn xoài nhà tôi 5 sào, dùng đúng 1 chai 250ml là đủ. Đáng đồng tiền bát gạo.</blockquote>
+          <div class="testify-author">
+            <div class="testify-avatar">H</div>
+            <div>
+              <div class="testify-name">Nguyễn Văn Hùng</div>
+              <div class="testify-meta">Cái Bè, Tiền Giang</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testify-card">
+        <div class="testify-photo" style="background-image: linear-gradient(135deg, #F4B83E 0%, #B85C2A 100%);">
+          <div class="photo-tag">★ Vườn sầu riêng · 2 ha</div>
+        </div>
+        <div class="testify-body">
+          <div class="testify-stars">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote>Sầu riêng vườn tôi bị bọ xít muỗi 3 vụ liền — phun thuốc khác không trị nổi. Dùng BIS ONE 1 lần, sạch trong 2 ngày. Trái đậu tốt hẳn.</blockquote>
+          <div class="testify-author">
+            <div class="testify-avatar">T</div>
+            <div>
+              <div class="testify-name">Phạm Minh Tuấn</div>
+              <div class="testify-meta">Cai Lậy, Tiền Giang</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testify-card">
+        <div class="testify-photo" style="background-image: linear-gradient(135deg, #5A8FB6 0%, #0A0A08 100%);">
+          <div class="photo-tag">★ Đại lý VTNN</div>
+        </div>
+        <div class="testify-body">
+          <div class="testify-stars">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote>Hàng giao nhanh, có hỗ trợ COD. Đại lý của tôi nhập về bán rất chạy, bà con quay lại mua tiếp. Giá tốt hơn nhiều so với hàng cũ.</blockquote>
+          <div class="testify-author">
+            <div class="testify-avatar">L</div>
+            <div>
+              <div class="testify-name">Lê Thị Lan</div>
+              <div class="testify-meta">Đại lý VTNN · Đồng Tháp</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1930,106 +2314,28 @@
 <section class="reviews" id="reviews">
   <div class="container">
     <div class="section-head">
-      <span class="lab-label">Phản hồi từ nhà vườn</span>
+      <span class="lab-label">Đánh giá tổng hợp</span>
       <h2 class="section-title">12.545 đánh giá. <em>100% năm sao.</em></h2>
     </div>
-
     <div class="reviews-top">
-      <div class="review-summary">
+      <div>
         <div class="review-score">5.0<small>/5.0</small></div>
-        <div class="review-stars">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <div class="review-stars-big">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
         <p>Hàng triệu nhà nông tin dùng — giao nhanh, hiệu quả rõ rệt sau vài ngày, giá hợp lý.</p>
-        <span class="count">[ 12.545 đánh giá thực · cập nhật hôm nay ]</span>
+        <span class="review-count">[ 12.545 đánh giá thực · cập nhật hôm nay ]</span>
       </div>
-
       <div class="review-bars">
-        <div class="bar-row">
-          <span class="mono">5★</span>
-          <div class="bar-track"><div class="bar-fill" style="width: 100%"></div></div>
-          <span class="mono">100%</span>
-        </div>
-        <div class="bar-row">
-          <span class="mono">4★</span>
-          <div class="bar-track"><div class="bar-fill lime" style="width: 0%"></div></div>
-          <span class="mono">0%</span>
-        </div>
-        <div class="bar-row">
-          <span class="mono">3★</span>
-          <div class="bar-track"><div class="bar-fill lime" style="width: 0%"></div></div>
-          <span class="mono">0%</span>
-        </div>
-        <div class="bar-row">
-          <span class="mono">2★</span>
-          <div class="bar-track"><div class="bar-fill lime" style="width: 0%"></div></div>
-          <span class="mono">0%</span>
-        </div>
-        <div class="bar-row">
-          <span class="mono">1★</span>
-          <div class="bar-track"><div class="bar-fill lime" style="width: 0%"></div></div>
-          <span class="mono">0%</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="review-grid">
-      <div class="review-card">
-        <div class="review-stars">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <blockquote>"Phun buổi sáng, đến chiều thấy sâu rớt đầy gốc. Đáng đồng tiền bát gạo. Vườn xoài nhà tôi 5 sào, dùng đúng 1 chai 250ml là đủ."</blockquote>
-        <div class="review-author">
-          <div class="rv-avatar">H</div>
-          <div>
-            <div class="rv-name">Nguyễn Văn Hùng</div>
-            <div class="rv-meta">Cái Bè, Tiền Giang</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <blockquote>"Sầu riêng vườn tôi bị bọ xít muỗi 3 vụ liền — phun thuốc khác không trị nổi. Dùng BIS ONE 1 lần, sạch trong 2 ngày. Trái đậu tốt hẳn."</blockquote>
-        <div class="review-author">
-          <div class="rv-avatar">T</div>
-          <div>
-            <div class="rv-name">Phạm Minh Tuấn</div>
-            <div class="rv-meta">Cai Lậy, Tiền Giang</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <blockquote>"Hàng giao nhanh, có hỗ trợ COD. Đại lý của tôi nhập về bán rất chạy, bà con quay lại mua tiếp. Giá tốt hơn nhiều so với hàng cũ."</blockquote>
-        <div class="review-author">
-          <div class="rv-avatar">L</div>
-          <div>
-            <div class="rv-name">Lê Thị Lan</div>
-            <div class="rv-meta">Đại lý VTNN · Đồng Tháp</div>
-          </div>
-        </div>
+        <div class="bar-row"><span class="mono">5★</span><div class="bar-track"><div class="bar-fill" style="width: 100%"></div></div><span class="mono">100%</span></div>
+        <div class="bar-row"><span class="mono">4★</span><div class="bar-track"><div class="bar-fill gold" style="width: 0%"></div></div><span class="mono">0%</span></div>
+        <div class="bar-row"><span class="mono">3★</span><div class="bar-track"><div class="bar-fill gold" style="width: 0%"></div></div><span class="mono">0%</span></div>
+        <div class="bar-row"><span class="mono">2★</span><div class="bar-track"><div class="bar-fill gold" style="width: 0%"></div></div><span class="mono">0%</span></div>
+        <div class="bar-row"><span class="mono">1★</span><div class="bar-track"><div class="bar-fill gold" style="width: 0%"></div></div><span class="mono">0%</span></div>
       </div>
     </div>
   </div>
@@ -2043,7 +2349,11 @@
         <div class="order-info-content">
           <div class="urgency-bar">CÒN 20 SUẤT HÔM NAY · GIẢM 40%</div>
           <h2>Đặt hàng <em>ngay</em> — giao COD toàn quốc.</h2>
-
+          <div class="countdown" id="countdown">
+            <div class="cd-cell"><div class="cd-num" id="cd-h">00</div><div class="cd-label">Giờ</div></div>
+            <div class="cd-cell"><div class="cd-num" id="cd-m">00</div><div class="cd-label">Phút</div></div>
+            <div class="cd-cell"><div class="cd-num" id="cd-s">00</div><div class="cd-label">Giây</div></div>
+          </div>
           <div class="price-block">
             <div class="price-label">Giá ưu đãi hôm nay</div>
             <div class="price-display">
@@ -2052,52 +2362,23 @@
             </div>
             <span class="price-save">Tiết kiệm 120.000đ · chai 250ml</span>
           </div>
-
           <ul class="order-perks">
-            <li>
-              <div class="perk-check">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <span>Tư vấn <strong>miễn phí 24/7</strong> từ kỹ sư</span>
-            </li>
-            <li>
-              <div class="perk-check">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <span><strong>Free Ship</strong> khi mua từ 2 sản phẩm</span>
-            </li>
-            <li>
-              <div class="perk-check">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <span>Đổi trả <strong>miễn phí</strong> trong 7 ngày</span>
-            </li>
-            <li>
-              <div class="perk-check">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <span>Thanh toán <strong>COD</strong> — kiểm tra hàng trước khi trả tiền</span>
-            </li>
-            <li>
-              <div class="perk-check">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <span>Hàng <strong>chính hãng</strong> trực tiếp từ nhà máy</span>
-            </li>
+            <li><div class="perk-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span>Tư vấn <strong>miễn phí 24/7</strong> từ kỹ sư</span></li>
+            <li><div class="perk-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span><strong>Free Ship</strong> khi mua từ 2 sản phẩm</span></li>
+            <li><div class="perk-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span>Đổi trả <strong>miễn phí</strong> trong 7 ngày</span></li>
+            <li><div class="perk-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span>Thanh toán <strong>COD</strong> — kiểm tra hàng trước khi trả tiền</span></li>
+            <li><div class="perk-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span>Hàng <strong>chính hãng</strong> trực tiếp từ nhà máy</span></li>
           </ul>
         </div>
       </div>
-
-      <form class="order-form" onsubmit="event.preventDefault(); alert('Cảm ơn bạn! Chúng tôi sẽ gọi lại trong 15 phút để xác nhận đơn hàng.');">
+      <form class="order-form" onsubmit="event.preventDefault(); openPopup('thank-you');">
         <span class="lab-label">Đặt hàng nhanh — 30 giây</span>
         <h3>Để lại thông tin, chúng tôi gọi lại trong 15 phút.</h3>
         <p>Thông tin được mã hóa và bảo mật tuyệt đối.</p>
-
         <div class="form-field">
           <label for="name">Họ và tên *</label>
           <input type="text" id="name" required placeholder="Ví dụ: Nguyễn Văn A">
         </div>
-
         <div class="form-cols">
           <div class="form-field">
             <label for="phone">Số điện thoại *</label>
@@ -2108,35 +2389,22 @@
             <input type="text" id="province" required placeholder="VD: Tiền Giang">
           </div>
         </div>
-
         <div class="form-field">
           <label>Chọn số lượng</label>
           <div class="qty-picker">
-            <div class="qty-opt" onclick="this.parentNode.querySelectorAll('.qty-opt').forEach(e=>e.classList.remove('active'));this.classList.add('active')">
-              <span class="qty-num">1 chai</span>
-              <span class="qty-price">180.000đ</span>
-            </div>
-            <div class="qty-opt active" onclick="this.parentNode.querySelectorAll('.qty-opt').forEach(e=>e.classList.remove('active'));this.classList.add('active')">
-              <span class="qty-num">2 chai</span>
-              <span class="qty-price">340.000đ + ship</span>
-            </div>
-            <div class="qty-opt" onclick="this.parentNode.querySelectorAll('.qty-opt').forEach(e=>e.classList.remove('active'));this.classList.add('active')">
-              <span class="qty-num">3 chai</span>
-              <span class="qty-price">480.000đ + ship</span>
-            </div>
+            <div class="qty-opt" onclick="selectQty(this)"><span class="qty-num">1 chai</span><span class="qty-price">180.000đ</span></div>
+            <div class="qty-opt active popular" onclick="selectQty(this)"><span class="qty-num">2 chai</span><span class="qty-price">340.000đ + ship</span></div>
+            <div class="qty-opt" onclick="selectQty(this)"><span class="qty-num">3 chai</span><span class="qty-price">480.000đ + ship</span></div>
           </div>
         </div>
-
         <div class="form-field">
           <label for="note">Loại cây trồng / Ghi chú</label>
           <input type="text" id="note" placeholder="Ví dụ: vườn sầu riêng 2ha, bị bọ trĩ...">
         </div>
-
         <button type="submit" class="submit-btn">
           Đặt hàng — Nhận hàng trong 1–3 ngày
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </button>
-
         <div class="form-foot">[ 🔒 SECURE · NO SPAM · COD AVAILABLE ]</div>
       </form>
     </div>
@@ -2159,7 +2427,7 @@
       </div>
       <div class="foot-col">
         <h5>Sản phẩm</h5>
-        <a href="#product">Thông số kỹ thuật</a>
+        <a href="#compare">So sánh</a>
         <a href="#mechanism">Công nghệ</a>
         <a href="#usage">Hướng dẫn sử dụng</a>
         <a href="#reviews">Đánh giá</a>
@@ -2185,17 +2453,66 @@
   </div>
 </footer>
 
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.08 });
+<!-- STICKY MOBILE BAR -->
+<div class="sticky-bar">
+  <a href="#order" class="sb-order">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V6a3 3 0 0 1 6 0v5"/><rect x="3" y="11" width="18" height="11" rx="2"/></svg>
+    Nhận ưu đãi 40%
+  </a>
+  <a href="tel:18001234" class="sb-call">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Tư vấn ngay
+  </a>
+</div>
 
-  document.querySelectorAll('.problem-cell, .mech-card, .ben-card, .review-card, .spec-row, .dosage-row').forEach(el => {
-    el.classList.add('reveal');
-    observer.observe(el);
+<!-- POPUP THANK YOU -->
+<div class="popup-backdrop" id="popup-thank-you" onclick="if(event.target===this)closePopup()">
+  <div class="popup">
+    <button class="popup-close" onclick="closePopup()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="popup-icon">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h3>Cảm ơn <em>bạn!</em></h3>
+    <p>Kỹ sư nông nghiệp BIS ONE sẽ gọi cho bạn trong vòng <strong>5–10 phút</strong> để tư vấn miễn phí. Vui lòng để ý điện thoại.</p>
+    <a class="popup-cta" onclick="closePopup()">Đã hiểu</a>
+  </div>
+</div>
+
+<script>
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.problem-cell, .mech-card, .testify-card, .crop-card, .dosage-row, .result-card, .compare-col').forEach(el => {
+    el.classList.add('reveal'); observer.observe(el);
   });
+
+  // Qty selector
+  function selectQty(el) {
+    el.parentNode.querySelectorAll('.qty-opt').forEach(e => e.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  // Popup
+  function openPopup(id) { document.getElementById('popup-' + id).classList.add('active'); document.body.style.overflow = 'hidden'; }
+  function closePopup() { document.querySelectorAll('.popup-backdrop').forEach(p => p.classList.remove('active')); document.body.style.overflow = ''; }
+
+  // Countdown — đếm về cuối ngày
+  function tick() {
+    const now = new Date();
+    const end = new Date(); end.setHours(23, 59, 59, 999);
+    const diff = end - now;
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    const pad = n => String(n).padStart(2, '0');
+    const eh = document.getElementById('cd-h'); if (eh) eh.textContent = pad(h);
+    const em = document.getElementById('cd-m'); if (em) em.textContent = pad(m);
+    const es = document.getElementById('cd-s'); if (es) es.textContent = pad(s);
+  }
+  tick(); setInterval(tick, 1000);
 </script>
 
 </body>
